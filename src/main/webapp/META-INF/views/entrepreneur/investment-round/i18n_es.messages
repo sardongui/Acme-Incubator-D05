@@ -1,0 +1,15 @@
+entrepreneur.investmentRound.form.label.ticker = Ticker:
+entrepreneur.investmentRound.form.label.moment = Fecha de creación:
+entrepreneur.investmentRound.form.label.kindRound = Tipo de ronda:
+entrepreneur.investmentRound.form.label.title = Título:
+entrepreneur.investmentRound.form.label.description = Descripción:
+entrepreneur.investmentRound.form.label.amountMoney = Cantidad de dinero:
+entrepreneur.investmentRound.form.label.link = Enlace:
+
+entrepreneur.workProgramme.list = Lista de programas de trabajo
+
+entrepreneur.investmentRound.form.button.return = Volver
+
+entrepreneur.investmentRound.list.label.ticker = Ticker
+entrepreneur.investmentRound.list.label.kindRound = Tipo de ronda
+entrepreneur.investmentRound.list.label.title = Titulo

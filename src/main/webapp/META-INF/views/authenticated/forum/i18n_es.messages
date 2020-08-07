@@ -1,0 +1,7 @@
+authenticated.forum.list-mine.label.title = Título
+
+authenticated.forum.form.label.title = Título
+authenticated.forum.form.label.users = Usuarios
+authenticated.forum.form.label.investmentTitle = Título de la ronda de inversión
+authenticated.forum.form.buttom.messages = Mensajes
+authenticated.forum.form.button.return = Volver

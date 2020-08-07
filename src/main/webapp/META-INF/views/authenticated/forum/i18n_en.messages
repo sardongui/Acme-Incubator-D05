@@ -1,0 +1,7 @@
+authenticated.forum.list-mine.label.title = Title
+
+authenticated.forum.form.label.title = Title
+authenticated.forum.form.label.users = Users
+authenticated.forum.form.label.investmentTitle = Investment round title
+authenticated.forum.form.buttom.messages = Messages
+authenticated.forum.form.button.return = Return

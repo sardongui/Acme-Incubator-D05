@@ -1,0 +1,11 @@
+authenticated.message.list.label.title = Titulo:
+authenticated.message.list.label.tags = Etiquetas:
+
+authenticated.message.list.button.return = Volver
+
+authenticated.message.form.label.title = Título:
+authenticated.message.form.label.moment = Momento de creación:
+authenticated.message.form.label.tags = Etiquetas:
+authenticated.message.form.label.body = Cuerpo:
+
+authenticated.message.form.button.return = Volver
