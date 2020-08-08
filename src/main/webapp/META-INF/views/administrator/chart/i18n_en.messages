@@ -9,3 +9,9 @@ administrator.chart.form.label.toolsByStatus = Tools grouped by status:
 administrator.chart.form.label.investmentRoundByKind = InvestmentRound grouped by kind:
 
 administrator.chart.form.label.ApplicationsByStatement = Applications grouped by statement:
+
+administrator.chart.form.label.TimeSeriesApplications = Series applications during the last 15 days
+
+administrator.chart.form.label.AcceptedAplications = Accepted applications
+administrator.chart.form.label.PendingAplications = Pending applications
+administrator.chart.form.label.RejectedAplications = Rejected applications
