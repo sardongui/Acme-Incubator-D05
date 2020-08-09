@@ -3,16 +3,13 @@ package acme.features.entrepreneur.application;
 
 import java.util.Collection;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
-
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -22,6 +19,7 @@ public class EntrepreneurApplicationListMineService implements AbstractListServi
 
 	@Autowired
 	EntrepreneurApplicationRepository repository;
+
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
@@ -33,13 +31,9 @@ public class EntrepreneurApplicationListMineService implements AbstractListServi
 	@Override
 	public Collection<Application> findMany(final Request<Application> request) {
 		assert request != null;
-		Collection<Application> result ;
-		
-		
+		Collection<Application> result;
 
 		result = this.repository.findManyByEntrepreneurId(request.getPrincipal().getActiveRoleId());
-
-		
 
 		return result;
 	}
@@ -50,13 +44,8 @@ public class EntrepreneurApplicationListMineService implements AbstractListServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "moment", "statement", "moneyOffer");
-		
+		request.unbind(entity, model, "ticker", "moment");
+
 	}
-	
-	
-
-	
-
 
 }

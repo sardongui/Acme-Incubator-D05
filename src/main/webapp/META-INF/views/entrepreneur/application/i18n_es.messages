@@ -9,7 +9,7 @@ entrepreneur.application.form.label.InvestmentRoundEntrepreneur = Emprendedor
 entrepreneur.application.list.label.ticker = Ticker
 entrepreneur.application.list.label.moment = Fecha
 entrepreneur.application.list.label.statement = Estado 
-entrepreneur.application.list.label.moneyOffert = Dinero
+entrepreneur.application.list.label.moment = Fecha de creación
 
 
 entrepreneur.investmentRound.form.button.return = Volver
