@@ -1,4 +1,3 @@
-
 package acme.features.bookkeeper.accountingRecord;
 
 
@@ -53,8 +52,8 @@ public class BookkeeperAccountingRecordCreateService implements AbstractCreateSe
 
 		model.setAttribute("finalMode", false);
 		model.setAttribute("bookkeeperId", request.getPrincipal().getActiveRoleId());
-		model.setAttribute("investmentRoundId", request.getModel().getInteger("investmentRoundId"));
-		request.unbind(entity, model, "body", "finalMode", "title");
+		model.setAttribute("idinvestmentround", request.getModel().getInteger("investmentRoundId"));
+		request.unbind(entity, model, "body", "finalMode", "title","status");
 
 	}
 
@@ -65,7 +64,7 @@ public class BookkeeperAccountingRecordCreateService implements AbstractCreateSe
 		result = new AccountingRecord();
 		Date moment;
 
-		InvestmentRound investmentRound = this.investmentRepository.findOneById(request.getModel().getInteger("investment-roundId"));
+		InvestmentRound investmentRound = this.investmentRepository.findOneById(request.getModel().getInteger("investmentRoundId"));
 		result.setInvestmentRound(investmentRound);
 		Bookkeeper bookkeeper = this.repository.findBookkeeperById(request.getPrincipal().getActiveRoleId());
 		result.setBookkeeper(bookkeeper);

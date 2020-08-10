@@ -30,8 +30,8 @@ public class BookkeeperAccountingRecordController extends AbstractController<Boo
 	private BookkeeperAccountingRecordCreateService			createService;
 	
 
-	@Autowired
-	private BookkeeperAccountingRecordUpdateService			updateService;
+	//@Autowired
+	//private BookkeeperAccountingRecordUpdateService			updateService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -44,7 +44,7 @@ public class BookkeeperAccountingRecordController extends AbstractController<Boo
 		
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		//super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 
 	}
 }

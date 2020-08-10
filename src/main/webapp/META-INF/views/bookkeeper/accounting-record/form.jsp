@@ -28,7 +28,7 @@
 			<acme:form-option code="bookkeeper.accounting-record.form.label.finalMode.rejected" value="false" />
 		</acme:form-select>
 	<acme:form-return  code="bookkeeper.accounting-record.form.button.return"/>
-	<jstl:if test="${!finalMode }">
+	<jstl:if test="${!finalMode}">
 	<acme:form-submit test="${idbookkeeper==idprincipal}" code="bookkeeper.accounting-record.form.button.update" action="/bookkeeper/accountingRecord/update?id=${id}" />
 	</jstl:if>
 	</jstl:if>

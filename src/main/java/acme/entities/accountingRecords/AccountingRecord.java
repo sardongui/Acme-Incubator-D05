@@ -56,7 +56,7 @@ public class AccountingRecord extends DomainEntity {
 	@NotBlank
 	private String				body;
 	
-	@NotBlank
+	@NotNull
 	private boolean				finalMode;
 
 	// Derived attributes -----------------------------------------------------

@@ -34,7 +34,7 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 		bookkeeper = ar.getBookkeeper();
 		principal = request.getPrincipal();
 
-		result = bookkeeper.getId() == principal.getActiveRoleId() && !ar.isFinalMode();
+		result = bookkeeper.getId() == principal.getActiveRoleId();
 
 		return result;
 	}
