@@ -8,6 +8,7 @@
         `title` varchar(255),
         `bookkeeper_id` integer not null,
         `investment_round_id` integer not null,
+        `final_mode` boolean not null,
         primary key (`id`)
     ) engine=InnoDB;
 
