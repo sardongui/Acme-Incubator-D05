@@ -52,8 +52,8 @@ public class BookkeeperAccountingRecordCreateService implements AbstractCreateSe
 		assert model != null;
 
 		model.setAttribute("finalMode", false);
-		model.setAttribute("bookkeeperid", request.getPrincipal().getActiveRoleId());
-		model.setAttribute("idinvestmentRound", request.getModel().getInteger("investmentRoundId"));
+		model.setAttribute("bookkeeperId", request.getPrincipal().getActiveRoleId());
+		model.setAttribute("investmentRoundId", request.getModel().getInteger("investmentRoundId"));
 		request.unbind(entity, model, "body", "finalMode", "title");
 
 	}

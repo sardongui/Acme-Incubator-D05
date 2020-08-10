@@ -15,6 +15,7 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
+
 <acme:form >
 <input id="investmentRoundId" name="investmentRoundId" type="hidden" value="${param.investmentRoundId}"/>
 <jstl:if test="${command !='create' }">
@@ -28,7 +29,7 @@
 		</acme:form-select>
 	<acme:form-return  code="bookkeeper.accounting-record.form.button.return"/>
 	<jstl:if test="${!finalMode }">
-	<acme:form-submit test="${idbookkeeper==idprincipal}" code="bookkeeper.accounting-record.form.button.update"	action="/bookkeeper/accounting-record/update?id=${id}" />
+	<acme:form-submit test="${idbookkeeper==idprincipal}" code="bookkeeper.accounting-record.form.button.update" action="/bookkeeper/accountingRecord/update?id=${id}" />
 	</jstl:if>
 	</jstl:if>
 	
@@ -40,7 +41,7 @@
 			<acme:form-option code="bookkeeper.accounting-record.form.label.finalMode.accepted" value="true" />
 			<acme:form-option code="bookkeeper.accounting-record.form.label.finalMode.rejected" value="false" />
 		</acme:form-select>
-	<acme:form-submit code="bookkeeper.accounting-record.form.button.create" action="/bookkeeper/accounting-record/create"/>
+	<acme:form-submit code="bookkeeper.accounting-record.form.button.create" action="/bookkeeper/accountingRecord/create"/>
 	<acme:form-return  code="bookkeeper.accounting-record.form.button.return"/>
 
 	</jstl:if>

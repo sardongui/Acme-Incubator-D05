@@ -15,7 +15,7 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/bookkeeper/accounting-record/")
+@RequestMapping("/bookkeeper/accountingRecord/")
 public class BookkeeperAccountingRecordController extends AbstractController<Bookkeeper,AccountingRecord > {
 
 	@Autowired
