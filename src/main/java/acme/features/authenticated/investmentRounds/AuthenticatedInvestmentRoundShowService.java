@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.investmentRounds.InvestmentRound;
+import acme.features.authenticated.forum.AuthenticatedForumRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -14,7 +15,10 @@ import acme.framework.services.AbstractShowService;
 public class AuthenticatedInvestmentRoundShowService implements AbstractShowService<Authenticated, InvestmentRound> {
 
 	@Autowired
-	AuthenticatedInvestmentRoundRepository repository;
+	AuthenticatedInvestmentRoundRepository	repository;
+
+	@Autowired
+	AuthenticatedForumRepository			forumRepository;
 
 
 	@Override
@@ -28,6 +32,10 @@ public class AuthenticatedInvestmentRoundShowService implements AbstractShowServ
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		int cantidadForums = this.forumRepository.findForumsByInvestmentRoundId(entity.getId());
+
+		model.setAttribute("cantidadForums", cantidadForums);
 
 		request.unbind(entity, model, "ticker", "moment", "kindRound", "title", "description", "amountMoney", "link");
 	}

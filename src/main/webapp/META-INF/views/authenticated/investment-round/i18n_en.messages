@@ -8,6 +8,8 @@ authenticated.investmentRound.form.label.link = Link:
 
 authenticated.workProgramme.list = List of works programmes
 
+authenticated.forum.form.button.list-mine-forum = Go to my forums
+authenticated.forum.form.button.create-forum = Create forum
 authenticated.investmentRound.form.button.return = Return
 
 authenticated.investmentRound.list.label.ticker = Ticker

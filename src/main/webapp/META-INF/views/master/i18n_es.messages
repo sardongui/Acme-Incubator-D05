@@ -151,6 +151,8 @@ master.menu.bookkeeper.list-not-mine-investment-round = Lista de otras rondas de
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.investor = Datos de investor
+master.menu.user-account.become-investor = Hazte investor
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor

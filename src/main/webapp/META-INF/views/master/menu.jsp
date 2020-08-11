@@ -74,7 +74,7 @@
 			<acme:menu-suboption code="master.menu.authenticated.list-overture" action="/authenticated/overture/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-challenge" action="/authenticated/challenge/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.list-investmentRound" action="/authenticated/investment-round/list"/>
-      <acme:menu-suboption code="master.menu.authenticated.list-mine.forum" action="/authenticated/forum/list-mine"/>
+      		<acme:menu-suboption code="master.menu.authenticated.list-mine.forum" action="/authenticated/forum/list-mine"/>
 		</acme:menu-option>
 	
 
@@ -162,6 +162,8 @@
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
+			<acme:menu-suboption code="master.menu.user-account.become-investor" action="/authenticated/investor/create" access="!hasRole('Investor')"/>
+			<acme:menu-suboption code="master.menu.user-account.investor" action="/authenticated/investor/update" access="hasRole('Investor')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
