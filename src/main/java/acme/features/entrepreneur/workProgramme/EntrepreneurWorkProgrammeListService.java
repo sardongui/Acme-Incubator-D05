@@ -2,11 +2,11 @@
 package acme.features.entrepreneur.workProgramme;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.entities.workProgrammes.WorkProgramme;
 import acme.framework.components.Model;
@@ -24,17 +24,20 @@ public class EntrepreneurWorkProgrammeListService implements AbstractListService
 	@Override
 	public boolean authorise(final Request<WorkProgramme> request) {
 		assert request != null;
-		boolean result;
+		boolean result = true;
 		int investId;
-		InvestmentRound ir;
+		//WorkProgramme wp;
 		Entrepreneur entrepreneur;
 		Principal principal;
 
 		investId = request.getModel().getInteger("id");
-		ir = this.repository.findAllWorkProgrammeById(investId).stream().findFirst().get().getInvestmentRound();
-		entrepreneur = ir.getEntrepreneur();
-		principal = request.getPrincipal();
-		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
+		Optional<WorkProgramme> wpr;
+		wpr = this.repository.findAllWorkProgrammeById(investId).stream().findAny();
+		if (wpr.isPresent()) {
+			entrepreneur = wpr.get().getInvestmentRound().getEntrepreneur();
+			principal = request.getPrincipal();
+			result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
+		}
 
 		return result;
 	}
