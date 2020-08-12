@@ -2,16 +2,21 @@
 package acme.features.entrepreneur.investmentRound;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.accountingRecords.AccountingRecord;
+import acme.entities.applications.Application;
+import acme.entities.forums.Forum;
 // import acme.entities.accountingRecords.AccountingRecord;
 // import acme.entities.forums.Forum;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.entities.workProgrammes.WorkProgramme;
 import acme.features.authenticated.forum.AuthenticatedForumRepository;
+import acme.features.entrepreneur.application.EntrepreneurApplicationRepository;
 import acme.features.entrepreneur.workProgramme.EntrepreneurWorkProgrammeRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -29,6 +34,9 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 
 	@Autowired
 	AuthenticatedForumRepository			forumRepository;
+
+	@Autowired
+	EntrepreneurApplicationRepository		applicationRepository;
 
 
 	@Override
@@ -78,17 +86,32 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 		assert entity != null;
 
 		Collection<WorkProgramme> workProgrammes = this.repository.findWorkProgrammesByInvestmentRoundId(entity.getId());
-		for (WorkProgramme wp : workProgrammes) {
-			this.workProgrammeRepository.delete(wp);
+		if (!workProgrammes.isEmpty()) {
+			for (WorkProgramme wp : workProgrammes) {
+				this.workProgrammeRepository.delete(wp);
+			}
+		}
+		Optional<Forum> forum = this.repository.findForumByInvestmentRoundId(entity.getId());
+		if (forum.isPresent()) {
+			Forum forumExist = forum.get();
+			this.forumRepository.delete(forumExist);
 		}
 
-		//		Forum forum = this.repository.findForumByInvestmentRoundId(entity.getId());
-		//		this.forumRepository.delete(forum);
-		//
-		//		Collection<AccountingRecord> accountingRecords = this.repository.findAccountingRecordsByInvestmentRoundId(entity.getId());
-		//		for (AccountingRecord ar : accountingRecords) {
-		//			this.workProgrammeRepository.delete(ar);
-		//		}
+		Collection<AccountingRecord> accountingRecords = this.repository.findAccountingRecordsByInvestmentRoundId(entity.getId());
+		if (!accountingRecords.isEmpty()) {
+			for (AccountingRecord ar : accountingRecords) {
+				// Puede que tengas que llamar al repositorio de accounting record cuando
+				// se mergee que aun no se ha mergeado porque no sabemos si Sara ha terminado
+				this.workProgrammeRepository.delete(ar);
+			}
+		}
+
+		Collection<Application> applications = this.repository.findApplicationByInvestmentRoundId(entity.getId());
+		if (!applications.isEmpty()) {
+			for (Application a : applications) {
+				this.applicationRepository.delete(a);
+			}
+		}
 
 		this.repository.delete(entity);
 	}
