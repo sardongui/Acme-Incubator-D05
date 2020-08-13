@@ -21,7 +21,7 @@ import acme.framework.services.AbstractCreateService;
 public class AuthenticatedForumCreateService implements AbstractCreateService<Authenticated, Forum> {
 
 	@Autowired
-	AuthenticatedForumRepository repository;
+	private AuthenticatedForumRepository repository;
 
 
 	@Override

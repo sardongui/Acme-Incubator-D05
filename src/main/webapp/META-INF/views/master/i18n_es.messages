@@ -115,6 +115,8 @@ master.menu.administrator.create-challenge = Crear desafios
 master.menu.administrator.update-challenge = Actualizar desafios
 master.menu.administrator.delete-challenge = Borrar desafios
 
+master.menu.administrator.auditRequest.list = Solicitudes para ser contable
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
@@ -142,7 +144,7 @@ master.menu.entrepreneur.application= Lista aplicaciones
 
 # master.menu.bookkeeper ##########################################################
 
-master.menu.bookkeeper = Solicitante
+master.menu.bookkeeper = Contable
 master.menu.bookkeeper.list-mine-investment-round = Lista de mis rondas de inversiones
 master.menu.bookkeeper.list-not-mine-investment-round = Lista de otras rondas de inversiones
 
@@ -159,6 +161,7 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.become-entrepreneur = Hazte emprendedor
 master.menu.user-account.entrepreneur = Datos de emprendedor
+master.menu.user-account.bookKeeperRequest = Hazte contable
 
 ﻿# master.footer ###############################################################
 
