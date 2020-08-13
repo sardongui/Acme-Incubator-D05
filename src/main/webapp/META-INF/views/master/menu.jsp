@@ -92,45 +92,48 @@
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.administrator.customisation" action="/administrator/customisation/show"/>
-      
+
 			<acme:menu-separator />
-      
-			<acme:menu-suboption code="master.menu.administrator.list-notice" action="/administrator/notice/list"/>
-      <acme:menu-suboption code="master.menu.administrator.create-notice" action="/administrator/notice/create"/>
-      
+
+			<acme:menu-suboption code="master.menu.administrator.list-notice" action="/administrator/notice/list" />
+			<acme:menu-suboption code="master.menu.administrator.create-notice" action="/administrator/notice/create" />
+
 			<acme:menu-separator />
-      
-			<acme:menu-suboption code="master.menu.administrator.list-overture" action="/administrator/overture/list"/>
-			<acme:menu-suboption code="master.menu.administrator.create-overture" action="/administrator/overture/create"/>
-   
-      <acme:menu-separator />
-      
-      <acme:menu-suboption code="master.menu.administrator.list-inquirie" action="/administrator/inquirie/list"/>
-			<acme:menu-suboption code="master.menu.administrator.create-inquirie" action="/administrator/inquirie/create"/>
-   
-      <acme:menu-separator />
-      
+
+			<acme:menu-suboption code="master.menu.administrator.list-overture" action="/administrator/overture/list" />
+			<acme:menu-suboption code="master.menu.administrator.create-overture" action="/administrator/overture/create" />
+
+			<acme:menu-separator />
+
+			<acme:menu-suboption code="master.menu.administrator.list-inquirie" action="/administrator/inquirie/list" />
+			<acme:menu-suboption code="master.menu.administrator.create-inquirie" action="/administrator/inquirie/create" />
+
+			<acme:menu-separator />
+
 			<acme:menu-suboption code="master.menu.administrator.list-tool-record" action="/administrator/tool-record/list" />
 			<acme:menu-suboption code="master.menu.administrator.create-tool-record" action="/administrator/tool-record/create" />
-      
-      <acme:menu-separator/>
-      
-      		<acme:menu-suboption code="master.menu.administrator.list-technology" action="/administrator/technology/list" />
+
+			<acme:menu-separator />
+
+			<acme:menu-suboption code="master.menu.administrator.list-technology" action="/administrator/technology/list" />
 			<acme:menu-suboption code="master.menu.administrator.create-technology" action="/administrator/technology/create" />
-      
-      <acme:menu-separator/>
-      
-			<acme:menu-suboption code="master.menu.administrator.list-challenge" action="/administrator/challenge/list"/>
-			<acme:menu-suboption code="master.menu.administrator.create-challenge" action="/administrator/challenge/create"/>
+
+			<acme:menu-separator />
+
+			<acme:menu-suboption code="master.menu.administrator.list-challenge" action="/administrator/challenge/list" />
+			<acme:menu-suboption code="master.menu.administrator.create-challenge" action="/administrator/challenge/create" />
+
+			<acme:menu-separator />
+
+			<acme:menu-suboption code="master.menu.administrator.list-banner" action="/administrator/banner/list" />
 			
-      <acme:menu-separator />
-      
-      		<acme:menu-suboption code="master.menu.administrator.list-banner" action="/administrator/banner/list"/>
-			
-      <acme:menu-separator />
-     		<acme:menu-suboption code="master.menu.administrator.chart" action="/administrator/chart/show"/>
-      		<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
-			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
+			<acme:menu-suboption code="master.menu.administrator.bookKeeperRequest.list" access="hasRole('Administrator')"
+				action="/administrator/book-keeper-request/list" />
+
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.administrator.chart" action="/administrator/chart/show" />
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show" />
+			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown" />
 		</acme:menu-option>
 		
 
@@ -170,6 +173,7 @@
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-entrepreneur" action="/authenticated/entrepreneur/create" access="!hasRole('Entrepreneur')"/>
 			<acme:menu-suboption code="master.menu.user-account.entrepreneur" action="/authenticated/entrepreneur/update" access="hasRole('Entrepreneur')"/>
+			<acme:menu-suboption code="master.menu.user-account.bookKeeperRequest" action="/authenticated/book-keeper-request/create" access="!hasRole('Auditor')" />
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>

@@ -22,7 +22,7 @@ import acme.framework.services.AbstractUpdateService;
 public class AuthenticatedForumUpdateService implements AbstractUpdateService<Authenticated, Forum> {
 
 	@Autowired
-	AuthenticatedForumRepository repository;
+	private AuthenticatedForumRepository repository;
 
 
 	@Override

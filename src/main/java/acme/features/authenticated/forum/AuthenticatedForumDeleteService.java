@@ -22,10 +22,10 @@ import acme.framework.services.AbstractDeleteService;
 public class AuthenticatedForumDeleteService implements AbstractDeleteService<Authenticated, Forum> {
 
 	@Autowired
-	AuthenticatedForumRepository	repository;
+	private AuthenticatedForumRepository	repository;
 
 	@Autowired
-	AuthenticatedMessageRepository	messageRepository;
+	private AuthenticatedMessageRepository	messageRepository;
 
 
 	@Override
