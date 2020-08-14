@@ -17,4 +17,7 @@ public interface EntrepreneurWorkProgrammeRepository extends AbstractRepository 
 
 	@Query("select wp from WorkProgramme wp where wp.id =?1")
 	WorkProgramme findOneWorkProgrammeById(int id);
+
+	@Query("select wp.budget.amount from WorkProgramme wp where wp.id =?1")
+	int findOneBudgetByWorkProgrammeId(int id);
 }

@@ -9,8 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.accountingRecords.AccountingRecord;
 import acme.entities.applications.Application;
+import acme.entities.customisations.Customisation;
 import acme.entities.forums.Forum;
 import acme.entities.investmentRounds.InvestmentRound;
+import acme.entities.messages.Message;
 import acme.entities.roles.Entrepreneur;
 import acme.entities.workProgrammes.WorkProgramme;
 import acme.framework.repositories.AbstractRepository;
@@ -38,5 +40,20 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 
 	@Query("select a from Application a where a.investmentRound.id = ?1")
 	Collection<Application> findApplicationByInvestmentRoundId(int investmentRoundId);
+
+	@Query("select ir.ticker from InvestmentRound ir")
+	Collection<String> findAllTickers();
+
+	@Query("select c from Customisation c")
+	Customisation findCustomisation();
+
+	@Query("select m from Message m where m.forum.investmentRound.id = ?1")
+	Collection<Message> findMessagesByInvestmentRoundId(int id);
+
+	@Query("select count(a) from Application a where a.investmentRound.id = ?1")
+	int findApplicationsByInvestmentRoundId(int investmentRoundId);
+
+	@Query("select sum(wp.budget.amount) from WorkProgramme wp where wp.investmentRound.id = ?1")
+	Double sumBudgetWorkProgramme(int id);
 
 }

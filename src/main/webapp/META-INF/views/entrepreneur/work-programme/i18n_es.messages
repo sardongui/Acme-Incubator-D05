@@ -6,4 +6,8 @@ entrepreneur.workProgramme.form.label.budget = Presupuesto:
 entrepreneur.workProgramme.form.button.return = Volver
 
 entrepreneur.workProgramme.list.label.title = Título
-entrepreneur.workProgramme.list.label.moment = fecha de creación
+entrepreneur.workProgramme.list.label.moment = Fecha de creación
+
+entrepreneur.work-programme.form.button.create-workProgramme = Crear Programa de Trabajo
+entrepreneur.work-programme.form.button.update = Actualizar
+entrepreneur.work-programme.form.button.delete = Eliminar

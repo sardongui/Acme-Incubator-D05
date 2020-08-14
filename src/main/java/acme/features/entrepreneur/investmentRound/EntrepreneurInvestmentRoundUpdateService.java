@@ -4,6 +4,7 @@ package acme.features.entrepreneur.investmentRound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customisations.Customisation;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Errors;
@@ -53,7 +54,7 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "moment", "kindRound", "title", "description", "amountMoney", "link");
+		request.unbind(entity, model, "ticker", "kindRound", "title", "description", "amountMoney", "link");
 	}
 
 	@Override
@@ -71,6 +72,77 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Customisation customisation = this.repository.findCustomisation();
+		String[] CustomisationParameter;
+		Integer n = 0;
+
+		int id;
+		Double sumBudget;
+
+		// Spam título
+		if (!errors.hasErrors("title")) {
+
+			Double spam = Double.valueOf(entity.getTitle().split(" ").length) * customisation.getThreshold() / 100.0;
+
+			CustomisationParameter = customisation.getSpamwords().split(",");
+
+			for (String s : CustomisationParameter) {
+				String l = entity.getTitle().toLowerCase();
+				int i = l.indexOf(s);
+				while (i != -1) {
+					n++;
+					l = l.substring(i + 1);
+					i = l.indexOf(s);
+				}
+				errors.state(request, n <= spam, "title", "entrepreneur.investment-round.form.error.tituloConSpam");
+
+				if (n > spam) {
+					break;
+				}
+			}
+
+		}
+
+		// Spam descripción
+		if (!errors.hasErrors("description")) {
+
+			Double spam = Double.valueOf(entity.getDescription().split(" ").length) * customisation.getThreshold() / 100.0;
+
+			CustomisationParameter = customisation.getSpamwords().split(",");
+
+			for (String s : CustomisationParameter) {
+				String l = entity.getDescription().toLowerCase();
+				int i = l.indexOf(s);
+				while (i != -1) {
+					n++;
+					l = l.substring(i + 1);
+					i = l.indexOf(s);
+				}
+				errors.state(request, n <= spam, "description", "entrepreneur.investment-round.form.error.descripcionConSpam");
+
+				if (n > spam) {
+					break;
+				}
+			}
+
+		}
+
+		// Dinero incorrecto
+		if (!errors.hasErrors("amountMoney")) {
+			errors.state(request, entity.getAmountMoney().getCurrency().equals("EUR") || entity.getAmountMoney().getCurrency().equals("€"), "amountMoney", "entrepreneur.investment-round.form.error.dineroIncorrecto");
+		}
+
+		//		// SumBudget incorrecto
+		//		if (!errors.hasErrors("budget")) {
+		//			id = request.getModel().getInteger("id");
+		//			sumBudget = this.repository.sumBudgetWorkProgramme(id);
+		//			if (sumBudget == null) {
+		//				sumBudget = 0.;
+		//			}
+		//			errors.state(request, sumBudget.equals(entity.getAmountMoney().getAmount()) || !request.getModel().getBoolean("finalMode"), "ticker", "entrepreneur.investment-round.form.error.sumBudget");
+		//		}
+
 	}
 
 	@Override

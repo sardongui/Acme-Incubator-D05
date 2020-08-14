@@ -13,6 +13,7 @@ import acme.entities.forums.Forum;
 // import acme.entities.accountingRecords.AccountingRecord;
 // import acme.entities.forums.Forum;
 import acme.entities.investmentRounds.InvestmentRound;
+import acme.entities.messages.Message;
 import acme.entities.roles.Entrepreneur;
 import acme.entities.workProgrammes.WorkProgramme;
 import acme.features.authenticated.forum.AuthenticatedForumRepository;
@@ -60,7 +61,7 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "moment", "kindRound", "title", "description", "amountMoney", "link");
+		request.unbind(entity, model, "ticker", "moment", "kindRound", "title", "description", "amountMoney", "link", "finalMode");
 	}
 
 	@Override
@@ -78,6 +79,15 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		int investmentRoundId;
+		int numApplications;
+
+		if (!errors.hasErrors("ticker")) {
+			investmentRoundId = request.getModel().getInteger("id");
+			numApplications = this.repository.findApplicationsByInvestmentRoundId(investmentRoundId);
+			errors.state(request, numApplications == 0, "ticker", "entrepreneur.investment-round.form.error.tieneSolucitudes");
+		}
 	}
 
 	@Override
@@ -91,6 +101,14 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 				this.workProgrammeRepository.delete(wp);
 			}
 		}
+
+		Collection<Message> messages = this.repository.findMessagesByInvestmentRoundId(entity.getId());
+		if (!messages.isEmpty()) {
+			for (Message m : messages) {
+				this.repository.delete(m);
+			}
+		}
+
 		Optional<Forum> forum = this.repository.findForumByInvestmentRoundId(entity.getId());
 		if (forum.isPresent()) {
 			Forum forumExist = forum.get();

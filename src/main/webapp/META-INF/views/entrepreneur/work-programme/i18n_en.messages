@@ -8,3 +8,7 @@ entrepreneur.workProgramme.form.button.return = Return
 entrepreneur.workProgramme.list.label.title = Title
 entrepreneur.workProgramme.list.label.moment = Moment
 
+entrepreneur.work-programme.form.button.create-workProgramme = Create Work Programme
+entrepreneur.work-programme.form.button.update = Update
+entrepreneur.work-programme.form.button.delete = Delete
+

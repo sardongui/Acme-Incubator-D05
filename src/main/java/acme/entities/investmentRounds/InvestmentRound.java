@@ -58,8 +58,11 @@ public class InvestmentRound extends DomainEntity {
 	@URL
 	private String				link;
 
+	public Boolean				finalMode;
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
 	private Entrepreneur		entrepreneur;
+
 }

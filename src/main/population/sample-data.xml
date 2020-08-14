@@ -500,6 +500,7 @@
 		<property name="description" value="Description 1" />
 		<property name="amountMoney" value="1000€" />
 		<property name="link" value="" />
+		<property name="finalMode" value="false" />
 		<property name="entrepreneur" ref="entrepreneur1Entrepreneur" />
 	</bean>
 
@@ -511,6 +512,7 @@
 		<property name="description" value="Description 2" />
 		<property name="amountMoney" value="500€" />
 		<property name="link" value="" />
+		<property name="finalMode" value="true" />
 		<property name="entrepreneur" ref="entrepreneur1Entrepreneur" />
 	</bean>
 
@@ -522,6 +524,7 @@
 		<property name="description" value="Description 3" />
 		<property name="amountMoney" value="800€" />
 		<property name="link" value="" />
+		<property name="finalMode" value="true" />
 		<property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
 	</bean>
 
@@ -537,7 +540,7 @@
 		<property name="title" value="Title 2" />
 		<property name="moment" value="2019/01/20 11:00" />
 		<property name="deadline" value="2021/12/01 20:00" />
-		<property name="budget" value="500€" />
+		<property name="budget" value="400€" />
 		<property name="investmentRound" ref="investmentRound1" />
 	</bean>
 
