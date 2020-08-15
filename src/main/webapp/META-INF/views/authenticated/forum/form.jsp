@@ -14,6 +14,7 @@
 		<acme:form-return code="authenticated.forum.form.button.goUpdate" action="/authenticated/forum/update?forumId=${id}"/>
 		<acme:form-submit code="authenticated.forum.form.buttom.messages" action="/authenticated/message/list-mine?forumId=${id}" method="get" />
 		<acme:form-submit code="authenticated.forum.form.button.delete" action="/authenticated/forum/delete"/>
+		<acme:form-submit code="authenticated.forum.form.button.create" action="/authenticated/message/create?forumId=${id}" method="get"/>
 		<acme:form-return code="authenticated.forum.form.button.return"/>
 	</jstl:if>
 	

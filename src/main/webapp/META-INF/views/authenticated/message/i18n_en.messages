@@ -1,3 +1,4 @@
+  
 authenticated.message.list.label.title = Title:
 authenticated.message.list.label.tags = Tags:
 
@@ -7,5 +8,9 @@ authenticated.message.form.label.title = Title:
 authenticated.message.form.label.moment = Creation moment:
 authenticated.message.form.label.tags = Tags:
 authenticated.message.form.label.body = Body:
+authenticated.message.form.label.user = User:
 
+authenticated.message.form.label.confirm = Confirm
+
+authenticated.message.form.button.create = Create
 authenticated.message.form.button.return = Return
