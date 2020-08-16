@@ -6,8 +6,6 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import acme.components.CustomCommand;
 import acme.entities.accountingRecords.AccountingRecord;
 
 import acme.entities.roles.Bookkeeper;
@@ -15,11 +13,11 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/bookkeeper/accountingRecord/")
+@RequestMapping("/bookkeeper/accounting-record/")
 public class BookkeeperAccountingRecordController extends AbstractController<Bookkeeper,AccountingRecord > {
 
 	@Autowired
-	private BookkeeperAccountingRecordListMineService		listMineService;
+	private BookkeeperAccountingRecordListService		listService;
 
 
 	@Autowired
@@ -30,21 +28,21 @@ public class BookkeeperAccountingRecordController extends AbstractController<Boo
 	private BookkeeperAccountingRecordCreateService			createService;
 	
 
-	//@Autowired
-	//private BookkeeperAccountingRecordUpdateService			updateService;
+	@Autowired
+	private BookkeeperAccountingRecordUpdateService			updateService;
 
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	private void initialise() {
-		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
+		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		
-		//super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 
 	}
 }

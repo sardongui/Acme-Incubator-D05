@@ -11,4 +11,5 @@ bookkeeper.investment-round.form.button.return = Return
 bookkeeper.investment-round.list.label.title = Title
 bookkeeper.investment-round.list.label.amountMoney = Money
 
-bookkeeper.investment-round.form.button.write = Create an Accounting Record
+bookkeeper.investment-round.form.button.create = Create an Accounting Record
+bookkeeper.investment-round.form.label.accounting-record= List Accounting Record

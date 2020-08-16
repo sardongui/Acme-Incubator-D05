@@ -1,6 +1,7 @@
 package acme.features.bookkeeper.accountingRecord;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.accountingRecords.AccountingRecord;
 import acme.entities.roles.Bookkeeper;
@@ -8,9 +9,10 @@ import acme.entities.roles.Bookkeeper;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
+
 import acme.framework.services.AbstractUpdateService;
 
+@Service
 public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateService<Bookkeeper, AccountingRecord>{
 
 	@Autowired
@@ -23,20 +25,8 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 	@Override
 	public boolean authorise(final Request<AccountingRecord> request) {
 		assert request != null;
-		int arId;
-		Boolean result;
-		AccountingRecord ar;
-		Bookkeeper bookkeeper;
-		Principal principal;
-
-		arId = request.getModel().getInteger("id");
-		ar = this.repository.findOneById(arId);
-		bookkeeper = ar.getBookkeeper();
-		principal = request.getPrincipal();
-
-		result = bookkeeper.getId() == principal.getActiveRoleId();
-
-		return result;
+		
+		return true;
 	}
 
 	@Override

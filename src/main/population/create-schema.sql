@@ -4,6 +4,7 @@
         `version` integer not null,
         `body` varchar(255),
         `creation_moment` datetime(6),
+        `final_mode` bit not null,
         `status` varchar(255),
         `title` varchar(255),
         `bookkeeper_id` integer not null,

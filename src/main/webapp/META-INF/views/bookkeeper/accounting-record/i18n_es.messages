@@ -17,8 +17,13 @@ bookkeeper.accounting-record.list.label.body = Cuerpo
 
 
 bookkeeper.accounting-record.form.label.finalMode = Guardar:
-bookkeeper.accounting-record.form.label.finalMode.accepted = Modo Final
-bookkeeper.accounting-record.form.label.finalMode.rejected = Modo Borrador
+bookkeeper.accounting-record.form.label.finalMode.final = Modo Final
+bookkeeper.accounting-record.form.label.finalMode.draft = Modo Borrador
+
+bookkeeper.accounting-record.form.label.status = Estado
+bookkeeper.accounting-record.form.label.status.draft = Borrados
+bookkeeper.accounting-record.form.label.status.published = Publicado
+
 
 bookkeeper.accounting-record.form.button.return = Volver
 bookkeeper.investment-round.list.button.return = Volver
