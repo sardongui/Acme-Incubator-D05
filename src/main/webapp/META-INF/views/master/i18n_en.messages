@@ -164,6 +164,8 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-entrepreneur = Become a entrepreneur
 master.menu.user-account.entrepreneur = Entrepreneur data
 master.menu.user-account.bookKeeperRequest = Become a bookkeeper
+master.menu.user-account.patron = Patron data
+master.menu.user-account.become-patron = Become a patron
 
 # master.footer ###############################################################
 
