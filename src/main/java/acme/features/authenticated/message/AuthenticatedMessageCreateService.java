@@ -95,12 +95,15 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert request != null;
 		Message result = new Message();
 
-		int userId = request.getPrincipal().getAccountId();
+		int userId = request.getPrincipal().getActiveRoleId();
 		Authenticated us = this.repository.findOneAuthenticatedById(userId);
 		result.setUser(us);
 
 		int forumId = request.getModel().getInteger("forumId");
 		result.setForum(this.repository.findOneForumById(forumId));
+
+		Date moment = new Date(System.currentTimeMillis() - 1);
+		result.setMoment(moment);
 
 		return result;
 	}
