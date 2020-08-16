@@ -22,7 +22,7 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 	Message findOneById(int id);
 
 	@Query("select f from Forum f where f.id = ?1")
-	Forum findForumById(int id);
+	Forum findForumById(int idForum);
 
 	@Query("select c from Customisation c")
 	Customisation findOneCustomisation();

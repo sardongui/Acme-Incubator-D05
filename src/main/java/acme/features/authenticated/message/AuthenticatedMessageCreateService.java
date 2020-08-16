@@ -64,7 +64,7 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert model != null;
 
-		//	model.setAttribute("forumId", request.getModel().getInteger("forumId"));
+		model.setAttribute("forumId", request.getModel().getInteger("forumId"));
 		request.unbind(entity, model, "title", "moment", "tags", "body");
 	}
 
