@@ -32,4 +32,8 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 
 	@Query("select a from Authenticated a where a.id = ?1")
 	Authenticated findOneAuthenticatedById(int activeRoleId);
+
+	@Query("select a from Authenticated a where  a.userAccount.id = ?1")
+	Authenticated findOneAuthenticatedByUserAccountId(int id);
+
 }

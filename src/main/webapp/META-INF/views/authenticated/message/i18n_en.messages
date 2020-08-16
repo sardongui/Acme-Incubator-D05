@@ -12,5 +12,8 @@ authenticated.message.form.label.user = User:
 
 authenticated.message.form.label.confirm = Confirm
 
-authenticated.message.form.button.create = Create
+authenticated.message.form.button.create = Create message
 authenticated.message.form.button.return = Return
+
+authenticated.message.form.error.must-confirm = You must confirm
+authenticated.message.form.error.spam = The text is spam

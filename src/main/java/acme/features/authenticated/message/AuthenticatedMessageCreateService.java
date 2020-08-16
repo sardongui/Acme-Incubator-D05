@@ -27,6 +27,7 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 
 	@Override
 	public boolean authorise(final Request<Message> request) {
+
 		assert request != null;
 
 		Principal principal = request.getPrincipal();
@@ -37,7 +38,13 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		Forum forum = this.repository.findForumById(idForum);
 		String[] users = forum.getUsers().split(",");
 		List<String> userList = Arrays.asList(users);
-		result = userList.contains(principal.getUsername());
+		//	result = userList.contains(principal.getUsername());
+		for (String s : userList) {
+			if (s.equals(principal.getUsername())) {
+				result = true;
+				break;
+			}
+		}
 
 		return result;
 	}
@@ -57,16 +64,41 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert model != null;
 
-		model.setAttribute("forumId", request.getModel().getInteger("forumId"));
+		//	model.setAttribute("forumId", request.getModel().getInteger("forumId"));
 		request.unbind(entity, model, "title", "moment", "tags", "body");
 	}
 
 	@Override
 	public Message instantiate(final Request<Message> request) {
-		assert request != null;
 
+		//		assert request != null;
+		//
+		//		Message result;
+		//		Authenticated authenticated;
+		//		int userAccountId;
+		//		Principal principal;
+		//		result = new Message();
+		//
+		//		int forumId = request.getModel().getInteger("forumid");
+		//		Forum forum = this.repository.findForumById(forumId);
+		//		result.setForum(forum);
+		//
+		//		Date moment = new Date(System.currentTimeMillis() - 1);
+		//		result.setMoment(moment);
+		//
+		//		principal = request.getPrincipal();
+		//		userAccountId = principal.getAccountId();
+		//		authenticated = this.repository.findOneAuthenticatedByUserAccountId(userAccountId);
+		//		result.setUser(authenticated);
+		//		return result;
+
+		assert request != null;
 		Message result = new Message();
-		result.setUser(this.repository.findOneAuthenticatedById(request.getPrincipal().getActiveRoleId()));
+
+		int userId = request.getPrincipal().getAccountId();
+		Authenticated us = this.repository.findOneAuthenticatedById(userId);
+		result.setUser(us);
+
 		int forumId = request.getModel().getInteger("forumId");
 		result.setForum(this.repository.findOneForumById(forumId));
 
