@@ -688,13 +688,13 @@
 		<property name="finalMode" value="true"/>
 	</bean>
 	<bean name="accountingRecord3" class="acme.entities.accountingRecords.AccountingRecord">
-		<property name="title" value="Accounting Record 2" />
+		<property name="title" value="Accounting Record 3" />
 		<property name="status" value="draft" />
 		<property name="creationMoment" value="2020/04/11 23:59" />
-		<property name="body" value="published" />
+		<property name="body" value="draft" />
 		<property name="investmentRound" ref="investmentRound2" />
 		<property name="bookkeeper" ref="bookkeeper2Bookkeeper" />
-		<property name="finalMode" value="true"/>
+		<property name="finalMode" value="false"/>
 	</bean>
 
 	<!-- Forum -->

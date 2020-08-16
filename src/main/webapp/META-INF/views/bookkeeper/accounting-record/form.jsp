@@ -23,15 +23,14 @@
 	<acme:form-textbox code="bookkeeper.accounting-record.form.label.title" path="title"/>
 	<acme:form-moment code="bookkeeper.accounting-record.form.label.creationMoment" path="creationMoment" readonly="true"/>
 	<acme:form-textbox code="bookkeeper.accounting-record.form.label.body" path="body"/>	
+	<acme:form-textbox code="bookkeeper.accounting-record.form.label.status" path="status" readonly="true"/>	
 	<acme:form-select code="bookkeeper.accounting-record.form.label.finalMode" path="finalMode" >
 			<acme:form-option code="bookkeeper.accounting-record.form.label.finalMode.final" value="true" />
 			<acme:form-option code="bookkeeper.accounting-record.form.label.finalMode.draft" value="false" />
 		</acme:form-select>
-	<acme:form-select code="bookkeeper.accounting-record.form.label.status" path="status" >
-			<acme:form-option code="bookkeeper.accounting-record.form.label.status.draft" value="draft" />
-			<acme:form-option code="bookkeeper.accounting-record.form.label.status.published" value="published" />
-	</acme:form-select>
+	
 	<acme:form-return  code="bookkeeper.accounting-record.form.button.return"/>
+	
 	<jstl:if test="${!finalMode}">
 	<acme:form-submit test="${idbookkeeper==idprincipal}" code="bookkeeper.accounting-record.form.button.update" action="/bookkeeper/accounting-record/update?id=${id}" />
 	</jstl:if>
@@ -41,14 +40,7 @@
 	
 	<acme:form-textbox code="bookkeeper.accounting-record.form.label.title" path="title"/>
 	<acme:form-textbox code="bookkeeper.accounting-record.form.label.body" path="body"/>	
-	<acme:form-select code="bookkeeper.accounting-record.form.label.finalMode" path="finalMode" >
-			<acme:form-option code="bookkeeper.accounting-record.form.label.finalMode.final" value="true" />
-			<acme:form-option code="bookkeeper.accounting-record.form.label.finalMode.draft" value="false" />
-		</acme:form-select>
-	<acme:form-select code="bookkeeper.accounting-record.form.label.status" path="status" >
-			<acme:form-option code="bookkeeper.accounting-record.form.label.status.draft" value="draft" />
-			<acme:form-option code="bookkeeper.accounting-record.form.label.status.published" value="published" />
-		</acme:form-select>
+	
 	<acme:form-submit code="bookkeeper.accounting-record.form.button.create" action="/bookkeeper/accounting-record/create"/>
 	<acme:form-return  code="bookkeeper.accounting-record.form.button.return"/>
 

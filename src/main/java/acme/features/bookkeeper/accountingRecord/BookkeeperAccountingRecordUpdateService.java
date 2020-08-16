@@ -19,9 +19,6 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 	BookkeeperAccountingRecordRepository	repository;
 
 
-	// AbstractListService<Administrator, Announcement> interface ------------------------------
-
-
 	@Override
 	public boolean authorise(final Request<AccountingRecord> request) {
 		assert request != null;
@@ -53,7 +50,7 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
 	}
 
 	@Override
@@ -73,7 +70,10 @@ public class BookkeeperAccountingRecordUpdateService implements AbstractUpdateSe
 	public void update(final Request<AccountingRecord> request, final AccountingRecord entity) {
 		assert request != null;
 		assert entity != null;
-
+		
+		if(entity.isFinalMode()) {
+			entity.setStatus("published");
+		}
 		this.repository.save(entity);
 
 	}

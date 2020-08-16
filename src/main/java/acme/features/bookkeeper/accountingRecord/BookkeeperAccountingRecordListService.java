@@ -33,7 +33,7 @@ public class BookkeeperAccountingRecordListService implements AbstractListServic
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "finalMode", "body");
+		request.unbind(entity, model, "title", "finalMode", "body", "status");
 		
 	}
 
@@ -43,11 +43,16 @@ public class BookkeeperAccountingRecordListService implements AbstractListServic
 
 		Collection<AccountingRecord> result;
 		
-		int investmentId;
-		investmentId = request.getModel().getInteger("investmentId");
+		//int investmentId;
+		//investmentId = request.getModel().getInteger("investmentId");
 
-		result = this.repository.findManyFinalByInvesmentRoundId(investmentId);
+		//result = this.repository.findManyFinalByInvesmentRoundId(investmentId);
+		
+		result = this.repository.findManyAccountingRecord();
 		return result;
 	}
+	
+
+	
 
 }

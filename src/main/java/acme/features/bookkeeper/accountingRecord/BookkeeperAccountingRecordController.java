@@ -6,9 +6,12 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+
 import acme.entities.accountingRecords.AccountingRecord;
 
 import acme.entities.roles.Bookkeeper;
+
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
@@ -18,8 +21,7 @@ public class BookkeeperAccountingRecordController extends AbstractController<Boo
 
 	@Autowired
 	private BookkeeperAccountingRecordListService		listService;
-
-
+	
 	@Autowired
 	private BookkeeperAccountingRecordShowService			showService;
 	

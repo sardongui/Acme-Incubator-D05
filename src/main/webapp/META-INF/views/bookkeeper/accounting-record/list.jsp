@@ -18,7 +18,9 @@
 
 <acme:list>
 	<acme:list-column code="bookkeeper.accounting-record.list.label.title" path="title" width="10%" />
-	<acme:list-column code="bookkeeper.accounting-record.list.label.body" path="body" width="80%" />
+	<acme:list-column code="bookkeeper.accounting-record.list.label.body" path="body" width="50%" />
+	<acme:list-column code="bookkeeper.accounting-record.list.label.status" path="status" width="10%" />
 </acme:list>
 
 <acme:form-return code="bookkeeper.investment-round.list.button.return" />
+

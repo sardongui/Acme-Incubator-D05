@@ -23,12 +23,8 @@ public class BookkeeperAccountingRecordShowService implements AbstractShowServic
 	@Override
 	public boolean authorise(final Request<AccountingRecord> request) {
 		assert request != null;
-		Boolean result;
-		int arId = request.getModel().getInteger("id");
-	
-		AccountingRecord ar = this.repository.findOneById(arId);
-		result = ar.getStatus().equals("published");
-		return result;
+
+		return true;
 	}
 
 	@Override

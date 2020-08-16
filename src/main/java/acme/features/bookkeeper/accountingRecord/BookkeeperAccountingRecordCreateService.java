@@ -38,7 +38,7 @@ public class BookkeeperAccountingRecordCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "creationMoment", "invesmentRound", "bookkeeper");
+		request.bind(entity, errors, "creationMoment", "invesmentRound", "bookkeeper", "status", "finalMode");
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class BookkeeperAccountingRecordCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "body", "finalMode", "status");
+		request.unbind(entity, model, "title", "body");
 
 	}
 
@@ -64,7 +64,8 @@ public class BookkeeperAccountingRecordCreateService implements AbstractCreateSe
 		System.out.println(b);
 		result.setBookkeeper(b);
 		result.setInvestmentRound(ir);
-		//result.setStatus("draft");
+		result.setStatus("draft");
+		result.setFinalMode(false); 
 		return result; 
 	}
 
@@ -82,7 +83,8 @@ public class BookkeeperAccountingRecordCreateService implements AbstractCreateSe
 
 		creationMoment = new Date(System.currentTimeMillis() - 1);
 		entity.setCreationMoment(creationMoment);
-		//entity.setStatus("draft");
+		entity.setStatus("draft");
+		entity.setFinalMode(false);
 		this.repository.save(entity);
 
 	}

@@ -15,13 +15,13 @@ public interface BookkeeperInvestmentRepository extends AbstractRepository {
 	@Query("select i from InvestmentRound i where i.id = ?1")
 	InvestmentRound findOneById(int id);
 
-	@Query("select i from InvestmentRound i")
+	@Query("select distinct i from InvestmentRound i")
 	Collection<InvestmentRound> findManyAll();
 
-	@Query("select a.investmentRound from AccountingRecord a where a.bookkeeper.id = ?1")
+	@Query("select distinct a.investmentRound from AccountingRecord a where a.bookkeeper.id = ?1")
 	Collection<InvestmentRound> findManyByBookkeeperId(int bookkeeperId);
 
-	@Query("select i from InvestmentRound i where i.id not in (select a.investmentRound.id from AccountingRecord a where a.bookkeeper.id = ?1)")
+	@Query("select distinct i from InvestmentRound i where i.id not in (select a.investmentRound.id from AccountingRecord a where a.bookkeeper.id = ?1)")
 	Collection<InvestmentRound> findOthersByBookkeeperId(int bookkeeperId);
 
 }

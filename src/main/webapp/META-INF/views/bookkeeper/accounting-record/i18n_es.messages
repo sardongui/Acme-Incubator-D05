@@ -14,14 +14,14 @@ bookkeeper.accounting-record.form.label.body = Cuerpo:
 
 bookkeeper.accounting-record.list.label.title = Titulo
 bookkeeper.accounting-record.list.label.body = Cuerpo
-
+bookkeeper.accounting-record.list.label.status = Estado
 
 bookkeeper.accounting-record.form.label.finalMode = Guardar:
 bookkeeper.accounting-record.form.label.finalMode.final = Modo Final
 bookkeeper.accounting-record.form.label.finalMode.draft = Modo Borrador
 
 bookkeeper.accounting-record.form.label.status = Estado
-bookkeeper.accounting-record.form.label.status.draft = Borrados
+bookkeeper.accounting-record.form.label.status.draft = Borrador
 bookkeeper.accounting-record.form.label.status.published = Publicado
 
 
