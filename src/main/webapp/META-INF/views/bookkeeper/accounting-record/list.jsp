@@ -1,5 +1,6 @@
-acme:form-checkbox<%--
-- form-option.tag
+
+<%--
+- list.jsp
 -
 - Copyright (c) 2019 Rafael Corchuelo.
 -
@@ -10,19 +11,16 @@ acme:form-checkbox<%--
 - they accept any liabilities with respect to them.
 --%>
 
-<%@tag language="java" body-content="empty"%>
+<%@page language="java"%>
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
- 
-<%@attribute name="value" required="true" type="java.lang.String"%>
-<%@attribute name="code" required="true" type="java.lang.String"%>
-<%@attribute name="selected" required="false" type="java.lang.Boolean"%>
 
-<jstl:if test="${selected == null}">
-	<jstl:set var="selected" value="false"/>
-</jstl:if>
+<acme:list>
+	<acme:list-column code="bookkeeper.accounting-record.list.label.title" path="title" width="10%" />
+	<acme:list-column code="bookkeeper.accounting-record.list.label.body" path="body" width="50%" />
+	<acme:list-column code="bookkeeper.accounting-record.list.label.status" path="status" width="10%" />
+</acme:list>
 
-<option value="${value}" <jstl:if test="${selected}">selected</jstl:if>>
-	<acme:message code="${code}"/>
-</option>
+<acme:form-return code="bookkeeper.investment-round.list.button.return" />
+

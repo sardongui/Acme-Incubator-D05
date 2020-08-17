@@ -683,18 +683,29 @@
 		<property name="title" value="Accounting Record 1" />
 		<property name="status" value="draft" />
 		<property name="creationMoment" value="2020/04/15 12:15" />
-		<property name="body" value="Draft" />
+		<property name="body" value="draft" />
 		<property name="investmentRound" ref="investmentRound3" />
 		<property name="bookkeeper" ref="bookkeeper1Bookkeeper" />
+		<property name="finalMode" value="false"/>
 	</bean>
 
 	<bean name="accountingRecord2" class="acme.entities.accountingRecords.AccountingRecord">
 		<property name="title" value="Accounting Record 2" />
 		<property name="status" value="published" />
 		<property name="creationMoment" value="2020/02/11 23:59" />
-		<property name="body" value="Published" />
+		<property name="body" value="published" />
 		<property name="investmentRound" ref="investmentRound2" />
 		<property name="bookkeeper" ref="bookkeeper2Bookkeeper" />
+		<property name="finalMode" value="true"/>
+	</bean>
+	<bean name="accountingRecord3" class="acme.entities.accountingRecords.AccountingRecord">
+		<property name="title" value="Accounting Record 3" />
+		<property name="status" value="draft" />
+		<property name="creationMoment" value="2020/04/11 23:59" />
+		<property name="body" value="draft" />
+		<property name="investmentRound" ref="investmentRound2" />
+		<property name="bookkeeper" ref="bookkeeper2Bookkeeper" />
+		<property name="finalMode" value="false"/>
 	</bean>
 
 	<!-- Forum -->
