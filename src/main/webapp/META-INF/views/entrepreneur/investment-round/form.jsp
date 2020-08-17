@@ -11,25 +11,22 @@
 	<acme:form-textarea code="entrepreneur.investmentRound.form.label.description" path="description" />
 	<acme:form-money code="entrepreneur.investmentRound.form.label.amountMoney" path="amountMoney" />
 	<acme:form-url code="entrepreneur.investmentRound.form.label.link" path="link" />
+	<jstl:if test="${command != 'create'}">
+		<acme:form-textbox code="entrepreneur.investmentRound.form.label.finalMode" path="finalMode" readonly="true" />
+	</jstl:if>
+
+	<p></p>
+
 	<jstl:if test="${command == 'show'}">
-		<acme:message code="entrepreneur.investmentRound.form.label.finalMode" />
-		<jstl:if test="${finalMode == false}">
-			<acme:message code="entrepreneur.investmentRound.form.label.finalModeFalse" />
-		</jstl:if>
-		<jstl:if test="${finalMode == true}">
-			<acme:message code="entrepreneur.investmentRound.form.label.finalModeTrue" />
-		</jstl:if>
-	
-	
+		<a href=/acme-incubator/entrepreneur/work-programme/list?id=${id}><acme:message code="entrepreneur.workProgramme.list" /></a>
+	</jstl:if>
+
 	<p></p>
 
-	<a href=/acme-incubator/entrepreneur/work-programme/list?id=${id}><acme:message code="entrepreneur.workProgramme.list"/></a>
-	
-	<p></p>
-
-	<acme:form-return code="entrepreneur.work-programme.form.button.create-workProgramme"
-		action="/entrepreneur/work-programme/create?investmentRoundId=${id}" />
-		</jstl:if>
+	<jstl:if test="${finalMode == false}">
+		<acme:form-return code="entrepreneur.work-programme.form.button.create-workProgramme"
+			action="/entrepreneur/work-programme/create?investmentRoundId=${id}" />
+	</jstl:if>
 
 	<acme:form-submit test="${command == 'show' && finalMode == false}" code="entrepreneur.investment-round.form.button.update"
 		action="/entrepreneur/investment-round/update" />
@@ -41,6 +38,6 @@
 		action="/entrepreneur/investment-round/update" />
 	<acme:form-submit test="${command == 'delete'}" code="entrepreneur.investment-round.form.button.delete"
 		action="/entrepreneur/investment-round/delete" />
-	
-	<acme:form-return code="entrepreneur.investmentRound.form.button.return"/>
+
+	<acme:form-return code="entrepreneur.investmentRound.form.button.return" />
 </acme:form>

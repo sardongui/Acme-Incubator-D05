@@ -62,7 +62,7 @@ public class EntrepreneurWorkProgrammeUpdateService implements AbstractUpdateSer
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment", "deadline", "budget", "investmentRound.ticker");
+		request.unbind(entity, model, "title", "moment", "deadline", "budget");
 	}
 
 	@Override
@@ -152,9 +152,11 @@ public class EntrepreneurWorkProgrammeUpdateService implements AbstractUpdateSer
 		double res = sumBudget + actualBudget - viejoBudget;
 		if (res == this.investmentRoundRepository.findOneInvestmentRoundById(entity.getInvestmentRound().getId()).getAmountMoney().getAmount()) {
 			entity.getInvestmentRound().setFinalMode(true);
+			this.repository.save(entity.getInvestmentRound());
 		}
 
 		this.repository.save(entity);
+
 	}
 
 }

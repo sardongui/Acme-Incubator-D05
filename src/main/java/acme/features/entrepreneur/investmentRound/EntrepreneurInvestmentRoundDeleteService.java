@@ -34,15 +34,16 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 	EntrepreneurWorkProgrammeRepository		workProgrammeRepository;
 
 	@Autowired
-	AuthenticatedForumRepository			forumRepository;
+	EntrepreneurApplicationRepository		applicationRepository;
 
 	@Autowired
-	EntrepreneurApplicationRepository		applicationRepository;
+	AuthenticatedForumRepository			forumRepository;
 
 
 	@Override
 	public boolean authorise(final Request<InvestmentRound> request) {
 		assert request != null;
+
 		return true;
 	}
 
@@ -83,7 +84,9 @@ public class EntrepreneurInvestmentRoundDeleteService implements AbstractDeleteS
 		int investmentRoundId;
 		int numApplications;
 
+		// Borrado incorrecto
 		if (!errors.hasErrors("ticker")) {
+
 			investmentRoundId = request.getModel().getInteger("id");
 			numApplications = this.repository.findApplicationsByInvestmentRoundId(investmentRoundId);
 			errors.state(request, numApplications == 0, "ticker", "entrepreneur.investment-round.form.error.tieneSolucitudes");

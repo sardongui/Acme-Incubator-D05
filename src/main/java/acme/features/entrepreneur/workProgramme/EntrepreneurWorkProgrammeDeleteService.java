@@ -39,7 +39,7 @@ public class EntrepreneurWorkProgrammeDeleteService implements AbstractDeleteSer
 		assert request != null;
 		assert request != null;
 
-		request.unbind(entity, model, "title", "moment", "deadline", "budget", "investmentRound.ticker");
+		request.unbind(entity, model, "title", "moment", "deadline", "budget");
 	}
 
 	@Override

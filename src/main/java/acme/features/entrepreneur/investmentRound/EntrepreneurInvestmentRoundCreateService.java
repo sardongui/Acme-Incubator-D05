@@ -28,6 +28,7 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 	@Override
 	public boolean authorise(final Request<InvestmentRound> request) {
 		assert request != null;
+
 		return true;
 	}
 
@@ -158,6 +159,8 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 
 	@Override
 	public void create(final Request<InvestmentRound> request, final InvestmentRound entity) {
+		assert request != null;
+		assert entity != null;
 
 		Date moment;
 		moment = new Date(System.currentTimeMillis() - 1);

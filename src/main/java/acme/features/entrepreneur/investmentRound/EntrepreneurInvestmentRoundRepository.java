@@ -56,4 +56,7 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select sum(wp.budget.amount) from WorkProgramme wp where wp.investmentRound.id = ?1")
 	Double sumBudgetWorkProgramme(int id);
 
+	@Query("select count(wp) from WorkProgramme wp where wp.investmentRound.id = ?1")
+	int countWorkProgrammesByInvestmentRoundId(int investmentRoundId);
+
 }

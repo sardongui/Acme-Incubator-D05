@@ -30,10 +30,10 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		Entrepreneur entrepreneur;
 		Principal principal;
 
-		principal = request.getPrincipal();
 		id = request.getModel().getInteger("id");
 		investmentRound = this.repository.findOneInvestmentRoundById(id);
 		entrepreneur = investmentRound.getEntrepreneur();
+		principal = request.getPrincipal();
 		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
@@ -54,7 +54,7 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ticker", "kindRound", "title", "description", "amountMoney", "link");
+		request.unbind(entity, model, "ticker", "moment", "kindRound", "title", "description", "amountMoney", "link", "finalMode");
 	}
 
 	@Override
@@ -77,14 +77,13 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		String[] CustomisationParameter;
 		Integer n = 0;
 
-		int id;
-		Double sumBudget;
+		Boolean superaMoney;
+		Double sumaBudget;
 
 		// Spam título
 		if (!errors.hasErrors("title")) {
 
 			Double spam = Double.valueOf(entity.getTitle().split(" ").length) * customisation.getThreshold() / 100.0;
-
 			CustomisationParameter = customisation.getSpamwords().split(",");
 
 			for (String s : CustomisationParameter) {
@@ -108,7 +107,6 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 		if (!errors.hasErrors("description")) {
 
 			Double spam = Double.valueOf(entity.getDescription().split(" ").length) * customisation.getThreshold() / 100.0;
-
 			CustomisationParameter = customisation.getSpamwords().split(",");
 
 			for (String s : CustomisationParameter) {
@@ -133,15 +131,21 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 			errors.state(request, entity.getAmountMoney().getCurrency().equals("EUR") || entity.getAmountMoney().getCurrency().equals("€"), "amountMoney", "entrepreneur.investment-round.form.error.dineroIncorrecto");
 		}
 
-		//		// SumBudget incorrecto
-		//		if (!errors.hasErrors("budget")) {
-		//			id = request.getModel().getInteger("id");
-		//			sumBudget = this.repository.sumBudgetWorkProgramme(id);
-		//			if (sumBudget == null) {
-		//				sumBudget = 0.;
-		//			}
-		//			errors.state(request, sumBudget.equals(entity.getAmountMoney().getAmount()) || !request.getModel().getBoolean("finalMode"), "ticker", "entrepreneur.investment-round.form.error.sumBudget");
-		//		}
+		// Dinero incorrecto
+		int cont = 0;
+		cont = this.repository.countWorkProgrammesByInvestmentRoundId(entity.getId());
+		if (cont != 0) {
+
+			if (!errors.hasErrors("amountMoney")) {
+				superaMoney = true;
+				sumaBudget = this.repository.sumBudgetWorkProgramme(entity.getId());
+				double actualAmount = entity.getAmountMoney().getAmount();
+				if (actualAmount < sumaBudget) {
+					superaMoney = false;
+				}
+				errors.state(request, superaMoney, "amountMoney", "entrepreneur.investment-round.form.error.dineroIncorrecto");
+			}
+		}
 
 	}
 
@@ -149,6 +153,17 @@ public class EntrepreneurInvestmentRoundUpdateService implements AbstractUpdateS
 	public void update(final Request<InvestmentRound> request, final InvestmentRound entity) {
 		assert request != null;
 		assert entity != null;
+
+		int cont = 0;
+		cont = this.repository.countWorkProgrammesByInvestmentRoundId(entity.getId());
+		if (cont != 0) {
+
+			double sumaBudget = this.repository.sumBudgetWorkProgramme(entity.getId());
+			double actualAmount = entity.getAmountMoney().getAmount();
+			if (actualAmount == sumaBudget) {
+				entity.setFinalMode(true);
+			}
+		}
 
 		this.repository.save(entity);
 	}
