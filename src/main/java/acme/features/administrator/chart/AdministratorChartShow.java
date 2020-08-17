@@ -1,6 +1,11 @@
 
 package acme.features.administrator.chart;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +37,10 @@ public class AdministratorChartShow implements AbstractShowService<Administrator
 		request.unbind(entity, model, "numberOfTechonologiesGroupedBySector", "numberOfToolsGroupedBySector");
 		request.unbind(entity, model, "ratioOfTechnologiesGroupedByStatus", "ratioOfToolsGroupedByStatus");
 		request.unbind(entity, model, "ratioOfInvestmentRoundGroupedByKindRound", "ratioOfApplicationsGroupedByStatement");
-		
+		request.unbind(entity, model, "numberOfRejectedApplicationsLastThreeWeeks");
+		request.unbind(entity, model, "numberOfPendingApplicationsLastThreeWeeks");
+		request.unbind(entity, model, "numberOfAcceptedApplicationsLastThreeWeeks");
+		request.unbind(entity, model, "allDatesBeforeThreeWeeks");
 	}
 
 	@Override
@@ -53,6 +61,29 @@ public class AdministratorChartShow implements AbstractShowService<Administrator
 		d.setRatioOfInvestmentRoundGroupedByKindRound(investmentRoundByKindRound);
 		Object[] applicationsByStatement = this.repository.findApplicationStatement();
 		d.setRatioOfApplicationsGroupedByStatement(applicationsByStatement);
+		
+		
+		Calendar calendar;
+		String[] allDatesBeforeThreeWeeks = new String[15];
+
+		calendar = new GregorianCalendar();
+		calendar.setTime(new Date(System.currentTimeMillis()));
+		calendar.add(Calendar.DATE, -15);
+		Object[] rejectedApplicationsByDays = this.repository.findRejectedApplicationsLastThreeWeeks(calendar.getTime());
+		d.setNumberOfRejectedApplicationsLastThreeWeeks(rejectedApplicationsByDays);
+		Object[] pendingApplicationsByDays = this.repository.findPendingApplicationsLastThreeWeeks(calendar.getTime());
+		d.setNumberOfPendingApplicationsLastThreeWeeks(pendingApplicationsByDays);
+		Object[] acceptedApplicationsByDays = this.repository.findAcceptedApplicationsLastThreeWeeks(calendar.getTime());
+		d.setNumberOfAcceptedApplicationsLastThreeWeeks(acceptedApplicationsByDays);
+
+		//Obteniendo todas las fechas de 15 días anteriores = 3 semanas anteriores
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+		for (Integer i = 0; i < 15; i++) {
+			calendar.add(Calendar.DAY_OF_MONTH, 1);
+			allDatesBeforeThreeWeeks[i] = formatoFecha.format(calendar.getTime());
+		}
+		d.setAllDatesBeforeThreeWeeks(allDatesBeforeThreeWeeks);
+
 		
 		return d;
 	}

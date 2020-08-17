@@ -23,6 +23,10 @@ public class Chart implements Serializable{
 	Object[]					ratioOfToolsGroupedByStatus;
 	Object[] 					ratioOfInvestmentRoundGroupedByKindRound;	
 	Object[] 					ratioOfApplicationsGroupedByStatement;
+	Object[]					numberOfRejectedApplicationsLastThreeWeeks;
+	Object[]					numberOfPendingApplicationsLastThreeWeeks;
+	Object[]					numberOfAcceptedApplicationsLastThreeWeeks;
+	String[]					allDatesBeforeThreeWeeks;
 	
 		
 	

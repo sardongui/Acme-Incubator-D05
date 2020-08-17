@@ -9,3 +9,9 @@ administrator.chart.form.label.toolsByStatus = Herramientas agrupadas por estado
 administrator.chart.form.label.investmentRoundByKind = Rondas de Inversión agrupadas por tipo:
 
 administrator.chart.form.label.ApplicationsByStatement = Solicitudes agrupadas por estado:
+
+administrator.chart.form.label.TimeSeriesApplications =  Aplicaciones los ultimos 15 dias
+
+administrator.chart.form.label.AcceptedAplications = Solicitudes aceptadas
+administrator.chart.form.label.PendingAplications = Solicitudes pendientes
+administrator.chart.form.label.RejectedAplications = Solicitudes rechazadas

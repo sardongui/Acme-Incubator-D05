@@ -20,7 +20,7 @@ import acme.framework.services.AbstractListService;
 public class AuthenticatedMessageListMineService implements AbstractListService<Authenticated, Message> {
 
 	@Autowired
-	AuthenticatedMessageRepository repository;
+	private AuthenticatedMessageRepository repository;
 
 
 	@Override

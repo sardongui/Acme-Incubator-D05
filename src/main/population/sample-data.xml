@@ -175,7 +175,7 @@
 
 	<bean id="Customisation" class="acme.entities.customisations.Customisation">
 		<property name="spamwords"
-			value="sex,hard core,viagra,cialis,nigeria,you've won, million dollar,sexo,duro,has ganado,millon de dolares" />
+			value="sex,hardcore,viagra,cialis,nigeria,you've won,million dollar,sexo,duro,has ganado,millon de dolares" />
 		<property name="threshold" value="2.50" />
 		<property name="activitySectors" value="Technology,Science,Arts,Business,Health" />
 	</bean>
@@ -521,6 +521,17 @@
 		<property name="title" value="Title 3" />
 		<property name="description" value="Description 3" />
 		<property name="amountMoney" value="800€" />
+		<property name="link" value="" />
+		<property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
+	</bean>
+	
+	<bean name="investmentRound4" class="acme.entities.investmentRounds.InvestmentRound">
+		<property name="ticker" value="SCI-20-124538" />
+		<property name="moment" value="2019/01/10 09:30" />
+		<property name="kindRound" value="BRIDGE" />
+		<property name="title" value="Title 4" />
+		<property name="description" value="Description 4" />
+		<property name="amountMoney" value="700€" />
 		<property name="link" value="" />
 		<property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
 	</bean>
