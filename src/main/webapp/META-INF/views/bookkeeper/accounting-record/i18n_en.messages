@@ -16,7 +16,7 @@ bookkeeper.accounting-record.list.label.title = Title
 bookkeeper.accounting-record.list.label.body = Body
 bookkeeper.accounting-record.list.label.status = Status
 
-bookkeeper.accounting-record.form.label.finalMode = Save:
+bookkeeper.accounting-record.form.label.finalMode = Final Mode:
 bookkeeper.accounting-record.form.label.finalMode.final = Final Mode
 bookkeeper.accounting-record.form.label.finalMode.draft = Draft Mode
 

@@ -13,3 +13,5 @@ entrepreneur.investmentRound.form.button.return = Return
 entrepreneur.investmentRound.list.label.ticker = Ticker
 entrepreneur.investmentRound.list.label.kindRound = Kind round
 entrepreneur.investmentRound.list.label.title = Title
+
+entrepreneur.investment-round.form.label.accounting-record = List accounting record

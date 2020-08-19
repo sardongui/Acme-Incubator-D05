@@ -15,6 +15,9 @@
 	<a href=/acme-incubator/entrepreneur/work-programme/list?id=${id}><acme:message code="entrepreneur.workProgramme.list"/></a>
 	
 	<p></p>
+	<acme:form-return code="entrepreneur.investment-round.form.label.accounting-record" action="/entrepreneur/accounting-record/list?investmentId=${id}"/>
+	
+
 	
 	<acme:form-return code="entrepreneur.investmentRound.form.button.return"/>
 </acme:form>
