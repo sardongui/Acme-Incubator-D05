@@ -43,7 +43,10 @@
 	<acme:message code="administrator.chart.form.label.ApplicationsByStatement"/>
     	<canvas id="ratioOfApplicationsGroupedByStatement"></canvas>
 	</div>
-
+<div>
+<acme:message code="administrator.chart.form.label.TimeSeriesApplications"/>
+    <canvas id="TimeSeriesApplications"></canvas>
+</div>
 	
 
 	<script type ="text/javascript">
@@ -244,6 +247,72 @@
 	 });
 	 
 	 
+	 $(document).ready(function(){
+		 var CanvasApplicationsByDays = document.getElementById("TimeSeriesApplications");
+		 Chart.defaults.global.defaultFontFamily = "Modeka";
+		 Chart.defaults.global.defaultFontSize = 15;
+		 
+		 var DataApplicationsByDays = {
+				 labels : [
+					 <jstl:forEach items = "${allDatesBeforeThreeWeeks}" var="item">
+					 "<jstl:out value= "${item}" />" ,
+					 </jstl:forEach>
+				 ],
+				 datasets:[
+					 {
+						 data: [
+							 <jstl:forEach items="${allDatesBeforeThreeWeeks}" var="item">
+							 <jstl:set var="value" value="0"/>
+							 <jstl:forEach items="${numberOfRejectedApplicationsLastThreeWeeks}" var="item2">
+							   <jstl:if test="${item == item2[0]}">
+							      <jstl:set var="value" value="${item2[1]}"/>
+							   </jstl:if>
+							 </jstl:forEach>
+							 <jstl:out value="${value}"/>,
+							 </jstl:forEach>
+						 ],
+						 borderColor:["red"],
+		                 label:"<acme:message code='administrator.chart.form.label.RejectedAplications'/>"
+					 },
+					 {
+					     data: [
+					    	 <jstl:forEach items="${allDatesBeforeThreeWeeks}" var="item">
+							 <jstl:set var="value" value="0"/>
+							 <jstl:forEach items="${numberOfPendingApplicationsLastThreeWeeks}" var="item2">
+							   <jstl:if test="${item == item2[0]}">
+							      <jstl:set var="value" value="${item2[1]}"/>
+							   </jstl:if>
+							 </jstl:forEach>
+							 <jstl:out value="${value}"/>,
+							 </jstl:forEach>
+					     ],
+						 borderColor:["blue"],
+	                     label:"<acme:message code='administrator.chart.form.label.PendingAplications'/>"
+					 },
+					 {
+						 data: [
+							 <jstl:forEach items="${allDatesBeforeThreeWeeks}" var="item">
+							 <jstl:set var="value" value="0"/>
+							 <jstl:forEach items="${numberOfAcceptedApplicationsLastThreeWeeks}" var="item2">
+							   <jstl:if test="${item == item2[0]}">
+							      <jstl:set var="value" value="${item2[1]}"/>
+							   </jstl:if>
+							 </jstl:forEach>
+							 <jstl:out value="${value}"/>,
+							 </jstl:forEach>
+						 ],
+						 borderColor:["green"],
+						 label:"<acme:message code='administrator.chart.form.label.AcceptedAplications'/>",
+					 }
+				 ]
+		 
+		 };
+					
+		 var pieChartApplicationsByDays = new Chart(CanvasApplicationsByDays, {
+			 type: 'line',
+			 data: DataApplicationsByDays,
+		 });
+	 }); 
 
 	 
 	</script>

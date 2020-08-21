@@ -17,6 +17,7 @@ entrepreneur.investmentRound.list.label.ticker = Ticker
 entrepreneur.investmentRound.list.label.kindRound = Kind round
 entrepreneur.investmentRound.list.label.title = Title
 
+
 entrepreneur.investment-round.form.button.create = Create
 entrepreneur.investment-round.form.button.update = Update
 entrepreneur.investment-round.form.button.delete = Delete
@@ -27,3 +28,6 @@ entrepreneur.investment-round.form.error.tituloConSpam = Title with spam
 entrepreneur.investment-round.form.error.descripcionConSpam = Description with spam
 entrepreneur.investment-round.form.error.dineroIncorrecto = Incorrect Money
 entrepreneur.investment-round.form.error.tieneSolucitudes = Has Applications
+
+entrepreneur.investment-round.form.label.accounting-record = List accounting record
+

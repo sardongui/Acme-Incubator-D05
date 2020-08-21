@@ -113,6 +113,8 @@ master.menu.administrator.create-challenge = Create challenge
 master.menu.administrator.update-challenge = Update challenge
 master.menu.administrator.delete-challenge = Delete challenge
 
+master.menu.administrator.bookKeeperRequest.list = Requests to become an Bookkeeper
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -154,12 +156,17 @@ master.menu.bookkeeper.list-not-mine-investment-round = List others Investment R
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
+master.menu.user-account.investor = Investor data
+master.menu.user-account.become-investor = Become a investor
 master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.become-entrepreneur = Become a entrepreneur
 master.menu.user-account.entrepreneur = Entrepreneur data
+master.menu.user-account.bookKeeperRequest = Become a bookkeeper
+master.menu.user-account.patron = Patron data
+master.menu.user-account.become-patron = Become a patron
 
 # master.footer ###############################################################
 

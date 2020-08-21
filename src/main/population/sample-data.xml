@@ -175,7 +175,7 @@
 
 	<bean id="Customisation" class="acme.entities.customisations.Customisation">
 		<property name="spamwords"
-			value="sex,hard core,viagra,cialis,nigeria,you've won, million dollar,sexo,duro,has ganado,millon de dolares" />
+			value="sex,hardcore,viagra,cialis,nigeria,you've won,million dollar,sexo,duro,has ganado,millon de dolares" />
 		<property name="threshold" value="2.50" />
 		<property name="activitySectors" value="Technology,Science,Arts,Business,Health" />
 	</bean>
@@ -527,6 +527,17 @@
 		<property name="finalMode" value="true" />
 		<property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
 	</bean>
+	
+	<bean name="investmentRound4" class="acme.entities.investmentRounds.InvestmentRound">
+		<property name="ticker" value="SCI-20-124538" />
+		<property name="moment" value="2019/01/10 09:30" />
+		<property name="kindRound" value="BRIDGE" />
+		<property name="title" value="Title 4" />
+		<property name="description" value="Description 4" />
+		<property name="amountMoney" value="700€" />
+		<property name="link" value="" />
+		<property name="entrepreneur" ref="entrepreneur2Entrepreneur" />
+	</bean>
 
 	<bean name="workProgramme1" class="acme.entities.workProgrammes.WorkProgramme">
 		<property name="title" value="Title 1" />
@@ -675,18 +686,29 @@
 		<property name="title" value="Accounting Record 1" />
 		<property name="status" value="draft" />
 		<property name="creationMoment" value="2020/04/15 12:15" />
-		<property name="body" value="Draft" />
+		<property name="body" value="draft" />
 		<property name="investmentRound" ref="investmentRound3" />
 		<property name="bookkeeper" ref="bookkeeper1Bookkeeper" />
+		<property name="finalMode" value="false"/>
 	</bean>
 
 	<bean name="accountingRecord2" class="acme.entities.accountingRecords.AccountingRecord">
 		<property name="title" value="Accounting Record 2" />
 		<property name="status" value="published" />
 		<property name="creationMoment" value="2020/02/11 23:59" />
-		<property name="body" value="Published" />
+		<property name="body" value="published" />
 		<property name="investmentRound" ref="investmentRound2" />
 		<property name="bookkeeper" ref="bookkeeper2Bookkeeper" />
+		<property name="finalMode" value="true"/>
+	</bean>
+	<bean name="accountingRecord3" class="acme.entities.accountingRecords.AccountingRecord">
+		<property name="title" value="Accounting Record 3" />
+		<property name="status" value="draft" />
+		<property name="creationMoment" value="2020/04/11 23:59" />
+		<property name="body" value="draft" />
+		<property name="investmentRound" ref="investmentRound2" />
+		<property name="bookkeeper" ref="bookkeeper2Bookkeeper" />
+		<property name="finalMode" value="false"/>
 	</bean>
 
 	<!-- Forum -->

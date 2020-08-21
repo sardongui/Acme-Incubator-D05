@@ -25,7 +25,9 @@
 	<acme:form-money code="bookkeeper.investment-round.form.label.amountMoney" path="amountMoney" placeholder="1 - 12"/>
 	<acme:form-url code="bookkeeper.investment-round.form.label.link" path="link" />
 
+	<acme:form-submit method="get" code="bookkeeper.investment-round.form.label.accounting-record" action="/bookkeeper/accounting-record/list?investmentId=${id}"/>
 	
+	<acme:form-submit method="get"  code="bookkeeper.investment-round.form.button.create" action="/bookkeeper/accounting-record/create?investmentId=${id} "/>
 	<acme:form-return code="bookkeeper.investment-round.form.button.return" />
 	
 </acme:form>

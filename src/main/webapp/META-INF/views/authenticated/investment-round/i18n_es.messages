@@ -8,8 +8,12 @@ authenticated.investmentRound.form.label.link = Enlace:
 
 authenticated.workProgramme.list = Lista de programas de trabajo
 
+authenticated.forum.form.button.list-mine-forum = Ir a mis foros
+authenticated.forum.form.button.create-forum = Crear foro
 authenticated.investmentRound.form.button.return = Volver
 
 authenticated.investmentRound.list.label.ticker = Ticker
 authenticated.investmentRound.list.label.kindRound = Tipo de ronda
 authenticated.investmentRound.list.label.title = Titulo
+
+authenticated.investment-round.form.label.accounting-record= Lista registros contables

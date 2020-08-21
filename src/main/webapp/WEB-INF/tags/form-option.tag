@@ -1,4 +1,4 @@
-<%--
+acme:form-checkbox<%--
 - form-option.tag
 -
 - Copyright (c) 2019 Rafael Corchuelo.

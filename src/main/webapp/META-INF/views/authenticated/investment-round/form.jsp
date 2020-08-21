@@ -13,8 +13,14 @@
 	<acme:form-url code="authenticated.investmentRound.form.label.link" path="link"/>
 	
 	<a href=/acme-incubator/authenticated/work-programme/list?id=${id}><acme:message code="authenticated.workProgramme.list"/></a>
-	
 	<p></p>
+	<jstl:if test="${cantidadForums == 0}">
+		<acme:form-return code="authenticated.forum.form.button.create-forum" action="/authenticated/forum/create?investmentRoundId=${id}"/>
+	</jstl:if>
+	<acme:form-return code="authenticated.investment-round.form.label.accounting-record" action="/authenticated/accounting-record/list?investmentId=${id}"/>
 	
+
+	
+	<acme:form-return code="authenticated.forum.form.button.list-mine-forum" action="/authenticated/forum/list-mine"/>
 	<acme:form-return code="authenticated.investmentRound.form.button.return"/>
 </acme:form>

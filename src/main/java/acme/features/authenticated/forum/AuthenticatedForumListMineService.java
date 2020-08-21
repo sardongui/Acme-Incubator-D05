@@ -19,7 +19,7 @@ import acme.framework.services.AbstractListService;
 public class AuthenticatedForumListMineService implements AbstractListService<Authenticated, Forum> {
 
 	@Autowired
-	AuthenticatedForumRepository repository;
+	private AuthenticatedForumRepository repository;
 
 
 	@Override

@@ -17,7 +17,7 @@ import acme.framework.services.AbstractShowService;
 public class AuthenticatedForumShowService implements AbstractShowService<Authenticated, Forum> {
 
 	@Autowired
-	AuthenticatedForumRepository repository;
+	private AuthenticatedForumRepository repository;
 
 
 	@Override

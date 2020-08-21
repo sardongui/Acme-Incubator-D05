@@ -674,7 +674,7 @@ InvestmentRound
 + ticker: String {NotBlank, Pattern(regexp = "^[A-Z]{3}[-][0-9]{2}[-][0-9]{6}$")}
 + moment: Date {NotNull, Temporal(TemporalType.TIMESTAMP), Past}
 + kindRound: String {NotBlank, Pattern(regexp = "^(SEED|ANGEL|SERIES-A|SERIES-B|SERIES-C|BRIDGE)$")}
-+ title: String {NotBlank}
++ title: String {NotBlank, Column(unique = true)}
 + description: String {NotBlank}
 + amountMoney: Money {Valid, NotNull}
 + link: String {URL}

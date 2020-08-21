@@ -23,6 +23,7 @@
 
 	<p></p>
 
+
 	<jstl:if test="${finalMode == false}">
 		<acme:form-return code="entrepreneur.work-programme.form.button.create-workProgramme"
 			action="/entrepreneur/work-programme/create?investmentRoundId=${id}" />
@@ -38,6 +39,8 @@
 		action="/entrepreneur/investment-round/update" />
 	<acme:form-submit test="${command == 'delete'}" code="entrepreneur.investment-round.form.button.delete"
 		action="/entrepreneur/investment-round/delete" />
-
+<acme:form-return code="entrepreneur.investment-round.form.label.accounting-record" action="/entrepreneur/accounting-record/list?investmentId=${id}"/>
+	
 	<acme:form-return code="entrepreneur.investmentRound.form.button.return" />
 </acme:form>
+

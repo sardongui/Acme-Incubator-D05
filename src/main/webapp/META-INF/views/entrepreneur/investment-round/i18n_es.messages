@@ -27,3 +27,6 @@ entrepreneur.investment-round.form.error.tituloConSpam = Título con spam
 entrepreneur.investment-round.form.error.descripcionConSpam = Descripción con spam
 entrepreneur.investment-round.form.error.dineroIncorrecto = Dinero Incorrecto
 entrepreneur.investment-round.form.error.tieneSolucitudes = Tiene Solicitudes
+
+entrepreneur.investment-round.form.label.accounting-record = Lista registros contables
+
