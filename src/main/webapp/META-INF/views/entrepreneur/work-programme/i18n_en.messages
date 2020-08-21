@@ -11,4 +11,9 @@ entrepreneur.workProgramme.list.label.moment = Moment
 entrepreneur.work-programme.form.button.create-workProgramme = Create Work Programme
 entrepreneur.work-programme.form.button.update = Update
 entrepreneur.work-programme.form.button.delete = Delete
+entrepreneur.work-programme.form.button.create = Create
+
+entrepreneur.work-programme.form.error.tituloConSpam = Title with spam
+entrepreneur.work-programme.form.error.fechaIncorrecta = Incorrect Moment
+entrepreneur.work-programme.form.error.dineroIncorrecto = Incorrect Money
 

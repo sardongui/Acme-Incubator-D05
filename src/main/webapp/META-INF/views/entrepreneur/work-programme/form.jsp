@@ -7,10 +7,10 @@
 	<acme:form-hidden path="investmentRoundId" />
 	<acme:form-hidden path="finalMode" />
 
-	<acme:form-url code="entrepreneur.workProgramme.form.label.title" path="title" />
-	<acme:form-url code="entrepreneur.workProgramme.form.label.moment" path="moment" readonly="true" />
-	<acme:form-url code="entrepreneur.workProgramme.form.label.deadline" path="deadline" />
-	<acme:form-url code="entrepreneur.workProgramme.form.label.budget" path="budget" />
+	<acme:form-textbox code="entrepreneur.workProgramme.form.label.title" path="title" />
+	<acme:form-moment code="entrepreneur.workProgramme.form.label.moment" path="moment" readonly="true" />
+	<acme:form-moment code="entrepreneur.workProgramme.form.label.deadline" path="deadline" />
+	<acme:form-money code="entrepreneur.workProgramme.form.label.budget" path="budget" />
 
 	<acme:form-submit test="${command == 'show' && finalMode == false}" code="entrepreneur.work-programme.form.button.update"
 		action="/entrepreneur/work-programme/update" />

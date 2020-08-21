@@ -138,8 +138,7 @@ public class EntrepreneurWorkProgrammeCreateService implements AbstractCreateSer
 		}
 
 		// Dinero incorrecto
-		int cont = 0;
-		cont = this.investmentRoundRepository.countWorkProgrammesByInvestmentRoundId(entity.getId());
+		int cont = this.investmentRoundRepository.countWorkProgrammesByInvestmentRoundId(entity.getInvestmentRound().getId());
 
 		if (cont != 0) {
 
@@ -155,7 +154,7 @@ public class EntrepreneurWorkProgrammeCreateService implements AbstractCreateSer
 			}
 		}
 
-		if (cont == 0) {
+		else if (cont == 0) {
 
 			if (!errors.hasErrors("budget")) {
 				superaMoney = true;
@@ -178,8 +177,7 @@ public class EntrepreneurWorkProgrammeCreateService implements AbstractCreateSer
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
 
-		int cont = 0;
-		cont = this.investmentRoundRepository.countWorkProgrammesByInvestmentRoundId(entity.getId());
+		int cont = this.investmentRoundRepository.countWorkProgrammesByInvestmentRoundId(entity.getInvestmentRound().getId());
 
 		if (cont != 0) {
 
@@ -188,14 +186,16 @@ public class EntrepreneurWorkProgrammeCreateService implements AbstractCreateSer
 			double res = sumBudget + actualBudget;
 			if (res == this.investmentRoundRepository.findOneInvestmentRoundById(entity.getInvestmentRound().getId()).getAmountMoney().getAmount()) {
 				entity.getInvestmentRound().setFinalMode(true);
+				this.repository.save(entity.getInvestmentRound());
 			}
 		}
 
-		if (cont == 0) {
+		else if (cont == 0) {
 
 			double actualBudget = entity.getBudget().getAmount();
 			if (actualBudget == this.investmentRoundRepository.findOneInvestmentRoundById(entity.getInvestmentRound().getId()).getAmountMoney().getAmount()) {
 				entity.getInvestmentRound().setFinalMode(true);
+				this.repository.save(entity.getInvestmentRound());
 			}
 		}
 

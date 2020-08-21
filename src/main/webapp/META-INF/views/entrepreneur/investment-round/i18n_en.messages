@@ -20,3 +20,10 @@ entrepreneur.investmentRound.list.label.title = Title
 entrepreneur.investment-round.form.button.create = Create
 entrepreneur.investment-round.form.button.update = Update
 entrepreneur.investment-round.form.button.delete = Delete
+
+entrepreneur.investment-round.form.error.tickerRepetido = Repeat Ticker
+entrepreneur.investment-round.form.error.tickerIncorrecto = Incorrect Ticker
+entrepreneur.investment-round.form.error.tituloConSpam = Title with spam
+entrepreneur.investment-round.form.error.descripcionConSpam = Description with spam
+entrepreneur.investment-round.form.error.dineroIncorrecto = Incorrect Money
+entrepreneur.investment-round.form.error.tieneSolucitudes = Has Applications

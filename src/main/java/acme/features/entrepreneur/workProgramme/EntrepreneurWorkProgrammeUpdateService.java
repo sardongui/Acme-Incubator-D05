@@ -136,7 +136,7 @@ public class EntrepreneurWorkProgrammeUpdateService implements AbstractUpdateSer
 			if (res > this.investmentRoundRepository.findOneInvestmentRoundById(entity.getInvestmentRound().getId()).getAmountMoney().getAmount()) {
 				superaMoney = false;
 			}
-			errors.state(request, superaMoney, "budget", "entrepreneur.investment-round.form.error.sumBudget");
+			errors.state(request, superaMoney, "budget", "entrepreneur.investment-round.form.error.dineroIncorrecto");
 		}
 
 	}
