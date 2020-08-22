@@ -17,10 +17,19 @@
 
 <acme:form>
 	<acme:form-textbox code="investor.application.form.label.ticker" path="ticker" />
-	<acme:form-moment code="investor.application.form.label.moment" path="moment" />
+	<acme:form-moment code="investor.application.form.label.moment" path="moment" readonly="true"/>
 	<acme:form-textarea code="investor.application.form.label.statement" path="statement" />
 	<acme:form-money code="investor.application.form.label.moneyOffer" path="moneyOffer" />
+	<jstl:if test="${command != 'create'}">
 	<acme:form-textarea code="investor.application.form.label.investmentRound.ticker" path="investmentRound.ticker" />
+	</jstl:if>
+	<acme:form-hidden path="investId"/>
+	
+	
+	<acme:form-submit test="${command == 'create'}" code="investor.application.form.button.create"
+		action="/investor/application/create?investId=${investId}" />
+
+	
 
 	<acme:form-return code="investor.application.form.button.return" />
 </acme:form>
