@@ -27,4 +27,7 @@ public interface InvestorApplicationRepository extends AbstractRepository {
 
 	@Query("select a.ticker from Application a")
 	Collection<String> findAllApplicationTickers();
+
+	@Query("select count(a) from Application a where a.investmentRound.id = ?1")
+	int findApplicationsByInvestmentRoundId(int id);
 }

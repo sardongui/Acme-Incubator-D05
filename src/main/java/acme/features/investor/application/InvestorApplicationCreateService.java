@@ -35,12 +35,10 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert request != null;
 
 		Boolean res = true;
-		Principal principal = request.getPrincipal();
-		int invId = principal.getActiveRoleId();
 		int irId = request.getModel().getInteger("investId");
-		Application app = this.repository.findOneApplicationByInvestorIdAndInvestmentRoundId(invId, irId);
+		Integer numApplications = this.repository.findApplicationsByInvestmentRoundId(irId);
 
-		if (app != null) {
+		if (numApplications != 0) {
 			res = false;
 		}
 
@@ -62,7 +60,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert entity != null;
 		assert model != null;
 
-		request.getModel().setAttribute("investId", request.getModel().getInteger("investId"));
+		model.setAttribute("investId", entity.getInvestmentRound().getId());
 
 		request.unbind(entity, model, "ticker", "moment");
 		request.unbind(entity, model, "statement", "moneyOffer", "investmentRound.ticker");

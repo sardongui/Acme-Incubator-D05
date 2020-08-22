@@ -39,10 +39,15 @@ public class InvestorInvestmentRoundShowService implements AbstractShowService<I
 		int investorId = principal.getActiveRoleId();
 		int investmentId = entity.getId();
 
+		// Estas 4 lineas creo que ya no las necesitas
 		Application app = this.appRepository.findOneApplicationByInvestorIdAndInvestmentRoundId(investorId, investmentId);
 		System.out.println("la investment " + investmentId);
 		System.out.println("la investor " + investorId);
 		System.out.println(app);
+
+		int cantidadApplications = this.appRepository.findApplicationsByInvestmentRoundId(entity.getId());
+
+		model.setAttribute("cantidadApplications", cantidadApplications);
 
 		request.getModel().setAttribute("app", app);
 

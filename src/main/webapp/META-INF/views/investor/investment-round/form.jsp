@@ -16,11 +16,8 @@
 	<!--<acme:form-submit test="${app == null}" code="investor.application.create"
 		action="/investor/application/create?investId=${id}" />  -->
 	
-	<jstl:if test="${app ==null}">
-		<a href=/acme-incubator/investor/application/create?investId=${id}><acme:message code="investor.application.create"/></a>
-	</jstl:if>
-	<jstl:if test="${app !=null}">
-	<p>Usted ya ha solicitado este weon</p>
+	<jstl:if test="${cantidadApplications == 0}">
+		<acme:form-return code="investor.application.create" action="/investor/application/create?investId=${id}"/>
 	</jstl:if>
 	
 	<acme:form-return code="investor.investmentRound.form.button.return"/>

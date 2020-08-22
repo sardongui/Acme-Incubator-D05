@@ -16,6 +16,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
+	<acme:form-hidden path="investId"/>
 	<acme:form-textbox code="investor.application.form.label.ticker" path="ticker" />
 	<acme:form-moment code="investor.application.form.label.moment" path="moment" readonly="true"/>
 	<acme:form-textarea code="investor.application.form.label.statement" path="statement" />
@@ -23,7 +24,6 @@
 	<jstl:if test="${command != 'create'}">
 	<acme:form-textarea code="investor.application.form.label.investmentRound.ticker" path="investmentRound.ticker" />
 	</jstl:if>
-	<acme:form-hidden path="investId"/>
 	
 	
 	<acme:form-submit test="${command == 'create'}" code="investor.application.form.button.create"
