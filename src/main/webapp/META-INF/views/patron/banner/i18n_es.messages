@@ -16,3 +16,5 @@ patron.banner.form.button.return = Volver
 
 patron.banner.list.label.slogan = Eslogan
 patron.banner.list.label.brand = Marca
+
+patron.banner.form.error.spam = Este slogan contiene spam

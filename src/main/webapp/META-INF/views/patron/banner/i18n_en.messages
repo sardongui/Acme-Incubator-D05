@@ -16,3 +16,5 @@ patron.banner.form.button.return = Return
 
 patron.banner.list.label.slogan = Slogan
 patron.banner.list.label.brand = Brand
+
+patron.banner.form.error.spam = this slogan contains spam

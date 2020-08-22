@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.Banner;
+import acme.entities.customisations.Customisation;
 import acme.entities.roles.Patron;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -64,6 +65,12 @@ public class PatronBannerUpdateService implements AbstractUpdateService<Patron, 
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Customisation cp = this.repository.findOneCustomisation();
+
+		if (!errors.hasErrors("slogan")) {
+			errors.state(request, !cp.isSpam(entity.getSlogan()), "slogan", "patron.banner.form.error.spam");
+		}
 	}
 
 	@Override

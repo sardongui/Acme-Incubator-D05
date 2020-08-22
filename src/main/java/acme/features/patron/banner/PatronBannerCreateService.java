@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.Banner;
+import acme.entities.customisations.Customisation;
 import acme.entities.roles.Patron;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -12,7 +13,6 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-
 public class PatronBannerCreateService implements AbstractCreateService<Patron, Banner> {
 
 	@Autowired
@@ -49,15 +49,24 @@ public class PatronBannerCreateService implements AbstractCreateService<Patron, 
 
 		Banner result;
 		result = new Banner();
+		int id = request.getPrincipal().getActiveRoleId();
+		Patron p = this.repository.findOnePatronById(id);
+		result.setPatron(p);
+
 		return result;
 	}
 
 	@Override
 	public void validate(final Request<Banner> request, final Banner entity, final Errors errors) {
-
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Customisation cp = this.repository.findOneCustomisation();
+
+		if (!errors.hasErrors("slogan")) {
+			errors.state(request, !cp.isSpam(entity.getSlogan()), "slogan", "patron.banner.form.error.spam");
+		}
 	}
 
 	@Override
