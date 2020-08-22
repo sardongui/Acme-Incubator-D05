@@ -11,5 +11,5 @@ authenticated.forum.form.message.adding = Si quiere añadir un usuario, debe hac
 authenticated.forum.form.message.deleting = Si quiere eliminar un usuario, debe borrar el usuario que desee eliminar y la coma que le precede.
 authenticated.forum.error.users = El usuario que ha añadido no existe.
 authenticated.forum.form.error.spamword-title = Este texto es considerado spam
-authenticated.forum.form.button.create = Crear
+authenticated.forum.form.button.create = Crear mensaje
 authenticated.forum.form.button.return = Volver
