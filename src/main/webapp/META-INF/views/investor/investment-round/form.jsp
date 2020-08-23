@@ -19,6 +19,9 @@
 	<jstl:if test="${cantidadApplications == 0}">
 		<acme:form-return code="investor.application.create" action="/investor/application/create?investId=${id}"/>
 	</jstl:if>
+	<jstl:if test="${cantidadApplications != 0}">
+		<acme:message code="investor.application.exist"/>
+	</jstl:if>
 	
 	<acme:form-return code="investor.investmentRound.form.button.return"/>
 </acme:form>

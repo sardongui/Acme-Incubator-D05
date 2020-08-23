@@ -142,6 +142,7 @@ master.menu.entrepreneur.create-investmentRound = Crear una Ronda de Inversión
 #master.menu.investor ####################################
 master.menu.investor = Inversor
 master.menu.entrepreneur.application= Lista aplicaciones
+master.menu.investor.investementRound = Ronda de inversiones
 
 # master.menu.bookkeeper ##########################################################
 

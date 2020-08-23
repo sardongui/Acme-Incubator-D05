@@ -13,3 +13,5 @@ investor.investmentRound.form.button.return = Volver
 investor.investmentRound.list.label.ticker = Ticker
 investor.investmentRound.list.label.kindRound = Tipo de ronda
 investor.investmentRound.list.label.title = Titulo
+
+investor.application.exist = Esta ronda de inversion ya esta solicitada

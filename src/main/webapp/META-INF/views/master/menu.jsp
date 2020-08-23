@@ -154,6 +154,7 @@
 		
 		<acme:menu-option code="master.menu.investor" access="hasRole('Investor')">
 			<acme:menu-suboption code="master.menu.investor.application" action="/investor/application/list_mine"/>
+			<acme:menu-suboption code="master.menu.investor.investementRound" action="/investor/investment-round/list"/>
 		</acme:menu-option>
 
 	</acme:menu-left>
