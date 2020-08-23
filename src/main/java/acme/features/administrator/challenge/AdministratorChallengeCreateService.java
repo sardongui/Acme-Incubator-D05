@@ -13,7 +13,6 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
-
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -42,14 +41,13 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 
 	@Override
 	public void create(final Request<Challenge> request, final Challenge entity) {
-		
 
 		this.repository.save(entity);
 
 	}
 
 	@Override
-	public void bind(Request<Challenge> request, Challenge entity, Errors errors) {
+	public void bind(final Request<Challenge> request, final Challenge entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
@@ -58,29 +56,29 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 	}
 
 	@Override
-	public Challenge instantiate(Request<Challenge> request) {
+	public Challenge instantiate(final Request<Challenge> request) {
 		Challenge result;
-		
+
 		result = new Challenge();
 		return result;
 	}
 
 	@Override
-	public void validate(Request<Challenge> request, Challenge entity, Errors errors) {
+	public void validate(final Request<Challenge> request, final Challenge entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 		//Comprobamos que el deadline es fecha futura
 		boolean isDeadlineFuture, isRookieRewardEuro, isAverageRewardEuro, isExpertRewardEuro, rookieAmount, averageAmount;
-		
+
 		if (!errors.hasErrors("deadline")) {
 			Calendar calendar = new GregorianCalendar();
 			Date currentMoment = calendar.getTime();
 			isDeadlineFuture = request.getModel().getDate("deadline").after(currentMoment);
 			errors.state(request, isDeadlineFuture, "deadline", "administrator.challenge.error.deadline");
 		}
-		
+
 		//Comprobamos que solo se puede meter Euros
 		if (!errors.hasErrors("rookieReward")) {
 			String rookieReward = entity.getRookieReward().getCurrency();
@@ -99,26 +97,26 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 			isExpertRewardEuro = expertReward.equals("€") || expertReward.equals("EUR");
 			errors.state(request, isExpertRewardEuro, "expertReward", "administrator.challenge.error.expertReward");
 		}
-		
+
 		//Comprobamos que rookie sea mayor que average
 		if (!errors.hasErrors("rookieReward") && !errors.hasErrors("averageReward")) {
 
 			Double averageReward = entity.getAverageReward().getAmount();
 			Double rookieReward = entity.getRookieReward().getAmount();
-			rookieAmount = averageReward < rookieReward;
+			rookieAmount = averageReward > rookieReward;
 			errors.state(request, rookieAmount, "rookieReward", "administrator.challenge.error.minRookieReward");
 		}
-		
+
 		//Comprobamos que average sea mayor que expert
 		if (!errors.hasErrors("averageReward") && !errors.hasErrors("rookieReward") && !errors.hasErrors("expertReward")) {
 
 			Double expertReward = entity.getExpertReward().getAmount();
 			Double averageReward = entity.getAverageReward().getAmount();
 			Double rookieReward = entity.getRookieReward().getAmount();
-			averageAmount = expertReward < averageReward && expertReward < rookieReward;
+			averageAmount = expertReward > averageReward && expertReward > rookieReward;
 			errors.state(request, averageAmount, "averageReward", "administrator.challenge.error.minAverageReward");
 		}
-			
+
 	}
 
 }
