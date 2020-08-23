@@ -9,3 +9,13 @@ investor.application.list.label.ticker = Ticker
 investor.application.list.label.moment = Momento de Creación
 
 investor.application.form.label.investmentRound.ticker = Ticker de Ronda de Inversión:
+
+investor.application.form.error.tickerRepetido = este ticker ya existe
+
+investor.application.form.error.tickerIncorrecto = este ticker es incorrecto, prueba xxx-yy-zzzzzz, y xxx debe de ser tu sector de actividad
+
+investor.application.form.error.dineroIncorrecto = valor incorrecto
+
+investor.application.ticker.pattern = El patron del ticker no es adecuado
+
+investor.application.form.button.create = Crear
