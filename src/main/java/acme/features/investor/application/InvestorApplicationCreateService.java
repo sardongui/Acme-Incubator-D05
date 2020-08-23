@@ -36,7 +36,10 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 
 		Boolean res = true;
 		int irId = request.getModel().getInteger("investId");
-		Integer numApplications = this.repository.findApplicationsByInvestmentRoundId(irId);
+		int invId = request.getPrincipal().getActiveRoleId();
+		Integer numApplications = this.repository.findApplicationsByInvestmentRoundId(irId, invId);
+
+		System.out.println("numero de aplicaciones o lo que falle: " + numApplications);
 
 		if (numApplications != 0) {
 			res = false;

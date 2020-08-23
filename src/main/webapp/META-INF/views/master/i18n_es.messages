@@ -135,13 +135,13 @@ master.menu.patron.list-mine-banner = Lista de mis banners
 
 #master.menu.entrepreneur ####################################
 master.menu.entrepreneur = Emprendedor
-master.menu.entrepreneur.list-mine-application = Lista aplicaciones
+master.menu.entrepreneur.list-mine-application = Lista de solicitudes
 master.menu.entrepreneur.list-investmentRound = Lista de ronda de inversiones
 master.menu.entrepreneur.create-investmentRound = Crear una Ronda de Inversión
 
 #master.menu.investor ####################################
 master.menu.investor = Inversor
-master.menu.entrepreneur.application= Lista aplicaciones
+master.menu.investor.application= Lista de solicitudes
 master.menu.investor.investementRound = Ronda de inversiones
 
 # master.menu.bookkeeper ##########################################################

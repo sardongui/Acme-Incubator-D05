@@ -10,6 +10,8 @@ investor.application.create = Apply investment round
 
 investor.investmentRound.form.button.return = Return
 
+investor.application.create = Apply investment round
+
 investor.investmentRound.list.label.ticker = Ticker
 investor.investmentRound.list.label.kindRound = Kind round
 investor.investmentRound.list.label.title = Title

@@ -45,7 +45,8 @@ public class InvestorInvestmentRoundShowService implements AbstractShowService<I
 		System.out.println("la investor " + investorId);
 		System.out.println(app);
 
-		int cantidadApplications = this.appRepository.findApplicationsByInvestmentRoundId(entity.getId());
+		int invId = request.getPrincipal().getActiveRoleId();
+		int cantidadApplications = this.appRepository.findApplicationsByInvestmentRoundId(entity.getId(), invId);
 
 		model.setAttribute("cantidadApplications", cantidadApplications);
 

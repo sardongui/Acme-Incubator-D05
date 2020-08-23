@@ -10,6 +10,8 @@ investor.application.create = Solicitar ronda de inversión
 
 investor.investmentRound.form.button.return = Volver
 
+investor.application.create = Solicitar ronda de inversión
+
 investor.investmentRound.list.label.ticker = Ticker
 investor.investmentRound.list.label.kindRound = Tipo de ronda
 investor.investmentRound.list.label.title = Titulo
