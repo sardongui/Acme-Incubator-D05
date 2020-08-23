@@ -9,12 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.components.CustomCommand;
 import acme.entities.applications.Application;
-
-
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-
 
 @Controller
 @RequestMapping("/entrepreneur/application/")
@@ -23,10 +20,14 @@ public class EntrepreneurApplicationController extends AbstractController<Entrep
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private EntrepreneurApplicationListMineService		listMineService;
-	
+	private EntrepreneurApplicationListMineService	listMineService;
+
 	@Autowired
-	private EntrepreneurApplicationShowService	showService;
+	private EntrepreneurApplicationShowService		showService;
+
+	@Autowired
+	private EntrepreneurApplicationUpdateService	updateService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -34,5 +35,6 @@ public class EntrepreneurApplicationController extends AbstractController<Entrep
 	private void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 	}
 }

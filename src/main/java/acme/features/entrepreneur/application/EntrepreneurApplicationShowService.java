@@ -1,11 +1,10 @@
-package acme.features.entrepreneur.application;
 
+package acme.features.entrepreneur.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
-
 import acme.entities.roles.Entrepreneur;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -18,6 +17,7 @@ public class EntrepreneurApplicationShowService implements AbstractShowService<E
 	// Internal state ------------------------------------------------------------------
 	@Autowired
 	EntrepreneurApplicationRepository repository;
+
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
@@ -34,7 +34,7 @@ public class EntrepreneurApplicationShowService implements AbstractShowService<E
 		entrepreneur = application.getInvestmentRound().getEntrepreneur();
 		principal = request.getPrincipal();
 		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
-		
+
 		return result;
 	}
 
@@ -56,15 +56,14 @@ public class EntrepreneurApplicationShowService implements AbstractShowService<E
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
 
 		String referenceInvestmentRound = entity.getInvestmentRound().getTicker();
 		model.setAttribute("referenceInvestmentRound", referenceInvestmentRound);
 		String InvestmentRoundEntrepreneur = entity.getInvestmentRound().getEntrepreneur().getUserAccount().getUsername();
 		model.setAttribute("InvestmentRoundEntrepreneur", InvestmentRoundEntrepreneur);
 
-		request.unbind(entity, model,  "ticker", "moment", "statement", "moneyOffer");
-		
+		request.unbind(entity, model, "ticker", "moment", "status", "statement", "moneyOffer", "rejectionJustification");
+
 	}
-	
+
 }
