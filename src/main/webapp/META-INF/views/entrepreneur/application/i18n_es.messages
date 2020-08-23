@@ -11,5 +11,12 @@ entrepreneur.application.list.label.moment = Fecha
 entrepreneur.application.list.label.statement = Estado 
 entrepreneur.application.list.label.moment = Fecha de creación
 
+entrepreneur.application.form.label.status = Estado
+entrepreneur.application.form.label.status.pending = Pendiente
+entrepreneur.application.form.label.status.accepted = Aceptado
+entrepreneur.application.form.label.status.rejected = Rechazado
+entrepreneur.application.form.label.rejectionJustification = Justificacion del rechazo
+entrepreneur.application.form.error.rejectionJustification = Debes justificar el rechazo
+entrepreneur.application.form.button.update = Actualizar estado
 
 entrepreneur.investmentRound.form.button.return = Volver

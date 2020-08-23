@@ -585,6 +585,8 @@
   		<property name="ticker" value="TEC-20-246802" />
   		<property name="moment" value="2020/02/11 23:59" />
   		<property name="statement" value="Application 1" />
+  		<property name="status" value="PENDING" />
+  		<property name="rejectionJustification" value="" />
   		<property name="moneyOffer" value="1200€" />
   		<property name="entrepreneur" ref="entrepreneur1Entrepreneur" /> 
   		<property name="investor" ref="investor1Investor" />
@@ -595,6 +597,8 @@
   		<property name="ticker" value="SOF-20-124836" />
   		<property name="moment" value="2020/04/15 12:15" />
   		<property name="statement" value="Application 3" />
+		<property name="status" value="REJECTED" />
+		<property name="rejectionJustification" value="Example justification" />
   		<property name="moneyOffer" value="750€" />
   		<property name="entrepreneur" ref="entrepreneur2Entrepreneur" /> 
   		<property name="investor" ref="investor2Investor" />

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.applications.ApplicationStatus;
 import acme.entities.investmentRounds.InvestmentRound;
 import acme.entities.roles.Entrepreneur;
 import acme.entities.roles.Investor;
@@ -66,7 +67,7 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		model.setAttribute("investId", entity.getInvestmentRound().getId());
 
 		request.unbind(entity, model, "ticker", "moment");
-		request.unbind(entity, model, "statement", "moneyOffer", "investmentRound.ticker");
+		request.unbind(entity, model, "statement", "status", "moneyOffer", "investmentRound.ticker");
 	}
 
 	@Override
@@ -74,6 +75,8 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 		assert request != null;
 		Application result;
 		result = new Application();
+
+		result.setStatus(ApplicationStatus.PENDING);
 
 		int id;
 		int idInv;
