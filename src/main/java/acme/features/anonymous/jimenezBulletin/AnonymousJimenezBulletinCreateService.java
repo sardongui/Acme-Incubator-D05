@@ -51,7 +51,14 @@ public class AnonymousJimenezBulletinCreateService implements AbstractCreateServ
 	public JimenezBulletin instantiate(final Request<JimenezBulletin> request) {
 		assert request != null;
 
-		JimenezBulletin result = new JimenezBulletin();
+		JimenezBulletin result;
+		Date moment;
+
+		moment = new Date(System.currentTimeMillis() - 1);
+		result = new JimenezBulletin();
+		result.setHeroName("Wonder Woman");
+		result.setPhrase("Alo polisia");
+		result.setMoment(moment);
 
 		return result;
 	}

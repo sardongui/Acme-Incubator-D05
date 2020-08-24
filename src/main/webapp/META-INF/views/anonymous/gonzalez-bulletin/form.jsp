@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-url code="anonymous.gonzalez-bulletin.form.label.movie" path="movie"/>
+	<acme:form-textbox code="anonymous.gonzalez-bulletin.form.label.movie" path="movie"/>
 	<acme:form-textarea code="anonymous.gonzalez-bulletin.form.label.director" path="director"/>
 	
 	<acme:form-submit code="anonymous.gonzalez-bulletin.form.button.create" action="/anonymous/gonzalez-bulletin/create"/>
