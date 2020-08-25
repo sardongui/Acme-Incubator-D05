@@ -26,7 +26,16 @@ public class InvestorInvestmentRoundShowService implements AbstractShowService<I
 	@Override
 	public boolean authorise(final Request<InvestmentRound> request) {
 		assert request != null;
-		return true;
+
+		int irId = request.getModel().getInteger("id");
+
+		InvestmentRound ir = this.repository.findOneInvestmentRoundById(irId);
+
+		Boolean res = true;
+		if (!ir.finalMode) {
+			res = false;
+		}
+		return res;
 	}
 
 	@Override

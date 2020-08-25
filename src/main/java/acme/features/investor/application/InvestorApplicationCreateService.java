@@ -46,6 +46,11 @@ public class InvestorApplicationCreateService implements AbstractCreateService<I
 			res = false;
 		}
 
+		InvestmentRound ir = this.repositoryInvest.findOneInvestmentRoundById(irId);
+		if (!ir.getFinalMode()) {
+			res = false;
+		}
+
 		return res;
 	}
 
