@@ -8,11 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.accounting-record.form.label.title = Titulo:
-authenticated.accounting-record.form.label.creationMoment = Momento de creacion:
+authenticated.accounting-record.form.label.title = Título:
+authenticated.accounting-record.form.label.creationMoment = Fecha de creación:
 authenticated.accounting-record.form.label.body = Cuerpo:
 
-authenticated.accounting-record.list.label.title = Titulo
+authenticated.accounting-record.list.label.title = Título
 authenticated.accounting-record.list.label.body = Cuerpo
 authenticated.accounting-record.list.label.status = Estado
 

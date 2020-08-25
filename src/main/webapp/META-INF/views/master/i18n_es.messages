@@ -67,11 +67,11 @@ master.menu.anonymous.list-tool-record = Lista de registros de herramientas
 master.menu.authenticated = Autenticado
 
 
-master.menu.authenticated.list-inquirie = Lista de consultas
+master.menu.authenticated.list-inquirie = Lista de Consultas
 
-master.menu.authenticated.list-challenge = Lista de desafíos
+master.menu.authenticated.list-challenge = Lista de Desafíos
 
-master.menu.authenticated.list-overture = Lista de propuestas
+master.menu.authenticated.list-overture = Lista de Propuestas
 
 master.menu.authenticated.list-notice = Lista de Anuncios
 
