@@ -7,5 +7,5 @@
 	<acme:list-column code="administrator.notice.list.label.headerPicture" path="headerPicture" width="20%" />
 	<acme:list-column code="administrator.notice.list.label.title" path="title" width="20%" />
 	<acme:list-column code="administrator.notice.list.label.body" path="body" width="20%" />
-	<acme:list-column code="administrator.notice.list.label.creationMoment" path="creationMoment" width="20%" />
+
 </acme:list>

@@ -32,7 +32,7 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Boletines
 
-master.menu.anonymous.favourite-link = Enlace favorito anonimo
+master.menu.anonymous.favourite-link = Enlace favorito anónimo
 master.menu.anonymous.favourite-link-marin = Enlace favorito de Marín
 master.menu.anonymous.favourite-link-fernandez = Enlace favorito de Fernández
 master.menu.anonymous.favourite-link-jimenez = Enlace favorito de Jiménez
@@ -56,10 +56,10 @@ master.menu.anonymous.notice = Anuncios
 master.menu.anonymous.list-notice = Lista de Anuncios
 master.menu.administrator.create-notice = Crear Anuncios
 
-master.menu.anonymous.technology = Registro de Tecnologia
-master.menu.anonymous.list-technology = Lista de registros de tecnologia
+master.menu.anonymous.technology = Registros Tecnológicos
+master.menu.anonymous.list-technology = Lista de Registros Tecnológicos
 
-master.menu.anonymous.tool-record = Registro de Herramientas
+master.menu.anonymous.tool-record = Registros de Herramientas
 master.menu.anonymous.list-tool-record = Lista de registros de herramientas
 
 # master.menu.authenticated ###################################################
@@ -67,15 +67,15 @@ master.menu.anonymous.list-tool-record = Lista de registros de herramientas
 master.menu.authenticated = Autenticado
 
 
-master.menu.authenticated.list-inquirie = Lista de consultas
+master.menu.authenticated.list-inquirie = Lista de Consultas
 
-master.menu.authenticated.list-challenge = Lista de desafios
+master.menu.authenticated.list-challenge = Lista de Desafíos
 
-master.menu.authenticated.list-overture = Lista de oberturas
+master.menu.authenticated.list-overture = Lista de Propuestas
 
 master.menu.authenticated.list-notice = Lista de Anuncios
 
-master.menu.authenticated.list-technology = Lista de registros de tecnologia
+master.menu.authenticated.list-technology = Lista de Registros Tecnológicos
 
 master.menu.authenticated.list-tool-record = Lista registros de herramientas
 
@@ -91,8 +91,8 @@ master.menu.administrator.customisation = Customización
 master.menu.administrator.shutdown = Parar el sistema
 master.menu.administrator.list-notice = Lista noticias
 
-master.menu.administrator.list-overture = Lista oberturas
-master.menu.administrator.create-overture = Crear obertura
+master.menu.administrator.list-overture = Lista propuestas
+master.menu.administrator.create-overture = Crear propuesta
 
 master.menu.administrator.list-inquirie = Lista de consultas
 master.menu.administrator.create-inquirie = Crear consulta
@@ -100,8 +100,8 @@ master.menu.administrator.create-inquirie = Crear consulta
 master.menu.administrator.create-tool-record = Crear registro de herramienta
 master.menu.administrator.list-tool-record = Lista de registros de herramientas
 
-master.menu.administrator.list-technology = Lista de registros de tecnologías
-master.menu.administrator.create-technology = Crear registro de tecnología
+master.menu.administrator.list-technology = Lista de Registros Tecnológicos
+master.menu.administrator.create-technology = Crear Registros Tecnológicos
 
 master.menu.administrator.list-banner = Lista de Banners
 master.menu.administrator.create-banner = Crear Banner
@@ -110,10 +110,10 @@ master.menu.administrator.chart = Gráficos
 master.menu.administrator.dashboard = Estadísticas
 
 
-master.menu.administrator.list-challenge = Lista de desafios
-master.menu.administrator.create-challenge = Crear desafios
-master.menu.administrator.update-challenge = Actualizar desafios
-master.menu.administrator.delete-challenge = Borrar desafios
+master.menu.administrator.list-challenge = Lista de desafíos
+master.menu.administrator.create-challenge = Crear desafíos
+master.menu.administrator.update-challenge = Actualizar desafíos
+master.menu.administrator.delete-challenge = Borrar desafíos
 
 master.menu.administrator.auditRequest.list = Solicitudes para ser contable
 

@@ -13,7 +13,7 @@ authenticated.entrepreneur.entrepreneur.form.title.update = Actualizar datos de 
 
 authenticated.entrepreneur.form.label.startUpName = Start up: 
 authenticated.entrepreneur.form.label.activitySector = Sector:
-authenticated.entrepreneur.form.label.qualificationRecord = Calificacion
+authenticated.entrepreneur.form.label.qualificationRecord = Calificación
 authenticated.entrepreneur.form.label.skillsRecord=  Habilidades
 
 authenticated.entrepreneur.entrepreneur.form.button.create = Registrar

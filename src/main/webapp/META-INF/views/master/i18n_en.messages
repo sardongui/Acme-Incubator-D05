@@ -53,11 +53,11 @@ master.menu.anonymous.create-gonzalez-bulletin = Publish in Gonzalez's bulletin
 master.menu.anonymous.links = Links
 
 master.menu.anonymous.notice = Notices
-master.menu.anonymous.list-notice = List of Notice
+master.menu.anonymous.list-notice = List of Notices
 master.menu.administrator.create-notice = Create Notice
 
 master.menu.anonymous.technology = Technology Records
-master.menu.anonymous.list-technology = List of Technology Record
+master.menu.anonymous.list-technology = List of Technology Records
 
 master.menu.anonymous.tool-record = Tool Records
 master.menu.anonymous.list-tool-record = List of Tool Records
@@ -67,11 +67,11 @@ master.menu.anonymous.list-tool-record = List of Tool Records
 master.menu.authenticated = Authenticated
 
 
-master.menu.authenticated.list-inquirie = List of inquiries
+master.menu.authenticated.list-inquirie = List of Inquiries
 
-master.menu.authenticated.list-challenge = List of challenges
+master.menu.authenticated.list-challenge = List of Challenges
 
-master.menu.authenticated.list-overture = List of overtures
+master.menu.authenticated.list-overture = List of Overtures
 
 master.menu.authenticated.list-notice = List of Notices
 
@@ -89,29 +89,29 @@ master.menu.administrator = Administrator
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.customisation = Customisation
 master.menu.administrator.shutdown = Shut down
-master.menu.administrator.list-notice = List notice
-master.menu.administrator.list-overture = List overture
-master.menu.administrator.create-overture = Create overture
+master.menu.administrator.list-notice = List of Notices
+master.menu.administrator.list-overture = List of Overtures
+master.menu.administrator.create-overture = Create Overture
 
-master.menu.administrator.list-inquirie = List of inquiries
-master.menu.administrator.create-inquirie = Create inquirie
+master.menu.administrator.list-inquirie = List of Inquiries
+master.menu.administrator.create-inquirie = Create Inquirie
 
 master.menu.administrator.create-tool-record = Create Tool Record
 master.menu.administrator.list-tool-record = List of Tool Records
 
-master.menu.administrator.list-technology = List Technology Record
+master.menu.administrator.list-technology = List of Technology Records
 master.menu.administrator.create-technology = Create Technology Record
 
-master.menu.administrator.list-banner = List Banners
+master.menu.administrator.list-banner = List of Banners
 master.menu.administrator.create-banner = Create Banner
 
 master.menu.administrator.dashboard = Dashboard
 
 master.menu.administrator.chart = Chart
-master.menu.administrator.list-challenge = List challenge
-master.menu.administrator.create-challenge = Create challenge
-master.menu.administrator.update-challenge = Update challenge
-master.menu.administrator.delete-challenge = Delete challenge
+master.menu.administrator.list-challenge = List of Challenges
+master.menu.administrator.create-challenge = Create Challenge
+master.menu.administrator.update-challenge = Update Challenge
+master.menu.administrator.delete-challenge = Delete Challenge
 
 master.menu.administrator.bookKeeperRequest.list = Requests to become an Bookkeeper
 
@@ -136,7 +136,7 @@ master.menu.entrepreneur ####################################
 
 master.menu.entrepreneur = Entrepreneur
 master.menu.entrepreneur.list-mine-application = List my applications
-master.menu.entrepreneur.list-investmentRound = List of investment round
+master.menu.entrepreneur.list-investmentRound = List of investment rounds
 master.menu.entrepreneur.create-investmentRound = Create an Investment Round
 
 master.menu.investor ####################################
