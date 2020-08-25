@@ -1,14 +1,14 @@
-administrator.inquirie.form.label.title = Titulo:
+administrator.inquirie.form.label.title = Título:
 administrator.inquirie.form.label.creationDate = Fecha inicial:
 administrator.inquirie.form.label.endDate = Fecha final:
-administrator.inquirie.form.label.description = Descripcion:
-administrator.inquirie.form.label.minMoney = dinero minimo:
-administrator.inquirie.form.label.maxMoney = dinero maximo:
+administrator.inquirie.form.label.description = Descripción:
+administrator.inquirie.form.label.minMoney = Dinero mínimo:
+administrator.inquirie.form.label.maxMoney = Dinero máximo:
 administrator.inquirie.form.label.email = Correo:
 
 administrator.inquirie.form.button.return = Volver
 
-administrator.inquirie.list.label.title = Titulo
+administrator.inquirie.list.label.title = Título
 administrator.inquirie.list.label.creationDate = Fecha inicial
 
 administrator.inquirie.form.button.update = Actualizar

@@ -1,6 +1,6 @@
 administrator.dashboard.form.label.numberNotices = Number of Notices:
 administrator.dashboard.form.label.numberTechnologies = Number of Technoloy Records:
-administrator.dashboard.form.label.numberTools = Number of Tool Record:
+administrator.dashboard.form.label.numberTools = Number of Tool Records:
 
 administrator.dashboard.form.label.minMoneyActiveInquiries = Minimum Money of Active Inquiries:
 administrator.dashboard.form.label.maxMoneyActiveInquiries = Maximum Money of Active Inquiries:
