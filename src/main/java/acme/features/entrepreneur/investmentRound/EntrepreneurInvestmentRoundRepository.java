@@ -59,4 +59,7 @@ public interface EntrepreneurInvestmentRoundRepository extends AbstractRepositor
 	@Query("select count(wp) from WorkProgramme wp where wp.investmentRound.id = ?1")
 	int countWorkProgrammesByInvestmentRoundId(int investmentRoundId);
 
+	@Query("select ir.ticker from InvestmentRound ir where ir.id = ?1")
+	String findOneTickerById(int id);
+
 }

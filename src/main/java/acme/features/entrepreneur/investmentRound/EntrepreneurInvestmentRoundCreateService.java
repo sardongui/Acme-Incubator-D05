@@ -152,7 +152,8 @@ public class EntrepreneurInvestmentRoundCreateService implements AbstractCreateS
 
 		// Dinero incorrecto
 		if (!errors.hasErrors("amountMoney")) {
-			errors.state(request, entity.getAmountMoney().getCurrency().equals("EUR") || entity.getAmountMoney().getCurrency().equals("€"), "amountMoney", "entrepreneur.investment-round.form.error.dineroIncorrecto");
+			errors.state(request, (entity.getAmountMoney().getCurrency().equals("EUR") || entity.getAmountMoney().getCurrency().equals("€")) && entity.getAmountMoney().getAmount() > 0, "amountMoney",
+				"entrepreneur.investment-round.form.error.dineroIncorrecto");
 		}
 
 	}
