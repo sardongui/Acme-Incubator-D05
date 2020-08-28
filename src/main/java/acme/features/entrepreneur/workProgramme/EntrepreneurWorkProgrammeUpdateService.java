@@ -123,7 +123,7 @@ public class EntrepreneurWorkProgrammeUpdateService implements AbstractUpdateSer
 
 		// Dinero incorrecto
 		if (!errors.hasErrors("budget")) {
-			errors.state(request, entity.getBudget().getCurrency().equals("EUR") || entity.getBudget().getCurrency().equals("€"), "budget", "entrepreneur.work-programme.form.error.dineroIncorrecto");
+			errors.state(request, (entity.getBudget().getCurrency().equals("EUR") || entity.getBudget().getCurrency().equals("€")) && entity.getBudget().getAmount() > 0, "budget", "entrepreneur.work-programme.form.error.dineroIncorrecto");
 		}
 
 		// Dinero incorrecto

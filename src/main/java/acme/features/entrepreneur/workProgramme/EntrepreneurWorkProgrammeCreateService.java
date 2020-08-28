@@ -44,8 +44,11 @@ public class EntrepreneurWorkProgrammeCreateService implements AbstractCreateSer
 		investmentRound = this.investmentRoundRepository.findOneInvestmentRoundById(id);
 		entrepreneur = investmentRound.getEntrepreneur();
 		result = entrepreneur.getUserAccount().getId() == principal.getAccountId();
-
+		if (investmentRound.getFinalMode() == true) {
+			result = false;
+		}
 		return result;
+
 	}
 
 	@Override
@@ -134,7 +137,7 @@ public class EntrepreneurWorkProgrammeCreateService implements AbstractCreateSer
 
 		// Dinero incorrecto
 		if (!errors.hasErrors("budget")) {
-			errors.state(request, entity.getBudget().getCurrency().equals("EUR") || entity.getBudget().getCurrency().equals("€"), "budget", "entrepreneur.work-programme.form.error.dineroIncorrecto");
+			errors.state(request, (entity.getBudget().getCurrency().equals("EUR") || entity.getBudget().getCurrency().equals("€")) && entity.getBudget().getAmount() > 0, "budget", "entrepreneur.work-programme.form.error.dineroIncorrecto");
 		}
 
 		// Dinero incorrecto
