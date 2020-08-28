@@ -14,7 +14,7 @@ administrator.bookKeeperRequest.form.label.status = Status:
 administrator.bookKeeperRequest.form.label.status.accepted= Accept
 administrator.bookKeeperRequest.form.label.status.rejected= Reject
 
-administrator.bookKeeperRequest.list.label.firm= Firm
+administrator.bookKeeperRequest.list.label.firmName= Firm
 administrator.bookKeeperRequest.list.label.username= User
 
 administrator.bookKeeperRequest.form.button.update= Update

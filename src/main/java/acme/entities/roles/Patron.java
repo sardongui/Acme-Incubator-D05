@@ -12,13 +12,19 @@
 
 package acme.entities.roles;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.CreditCardNumber;
-import org.hibernate.validator.constraints.Range;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
+import acme.entities.banners.Banner;
+import acme.entities.creditCards.CreditCard;
 import acme.framework.entities.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,26 +36,22 @@ public class Patron extends UserRole {
 
 	// Serialisation identifier -----------------------------------------------
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long			serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	private String				organisation;
-
-	@CreditCardNumber
-	private String				number;
-
-	@Range(min = 1, max = 12)
-	private Integer				monthExpiration;
-
-	private Integer				yearExpiration;
-
-	@Pattern(regexp = "^[0-9]{3,4}$")
-	private String				cvv;
+	private String						organisation;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
+	@OneToOne(optional = true)
+	@Valid
+	private CreditCard					card;
+
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(mappedBy = "patron")
+	private Collection<@Valid Banner>	banners;
 }

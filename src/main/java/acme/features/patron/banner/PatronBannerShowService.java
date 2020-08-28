@@ -22,8 +22,15 @@ public class PatronBannerShowService implements AbstractShowService<Patron, Bann
 	@Override
 	public boolean authorise(final Request<Banner> request) {
 		assert request != null;
+		int bannerId = request.getModel().getInteger("id");
+		int patronId = request.getPrincipal().getActiveRoleId();
 
-		return true;
+		Banner banner = this.repository.findOneById(bannerId);
+		Patron patron = this.repository.findPatronById(patronId);
+
+		boolean isAuthorised = banner.getPatron().equals(patron);
+
+		return isAuthorised;
 	}
 
 	@Override
@@ -31,7 +38,15 @@ public class PatronBannerShowService implements AbstractShowService<Patron, Bann
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "picture", "slogan", "url", "holderName", "number", "brand", "monthExpiration", "yearExpiration", "cvv");
+		model.setAttribute("hasCreditCard", !(entity.getCreditCard() == null));
+		int id = entity.getId();
+
+		model.setAttribute("banner", id);
+		if (entity.getCreditCard() != null) {
+			model.setAttribute("creditCard", entity.getCreditCard().getId());
+		}
+
+		request.unbind(entity, model, "picture", "slogan", "url");
 	}
 
 	@Override

@@ -14,5 +14,7 @@ patron.banner.form.button.update = Update
 patron.banner.form.button.delete = Delete
 patron.banner.form.button.return = Return
 
+patron.banner.form.button.card.create = Add Credit Card
+
 patron.banner.list.label.slogan = Slogan
-patron.banner.list.label.brand = Brand
+patron.banner.list.label.url = URL
