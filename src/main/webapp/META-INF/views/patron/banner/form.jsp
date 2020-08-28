@@ -20,19 +20,20 @@
 	<acme:form-url code="patron.banner.form.label.picture" path="picture" />
 	<acme:form-textbox code="patron.banner.form.label.slogan" path="slogan" />
 	<acme:form-url code="patron.banner.form.label.url" path="url" />
-	<acme:form-textbox code="patron.banner.form.label.holderName" path="holderName" />
-	<acme:form-textbox code="patron.banner.form.label.number" path="number" placeholder="1111 2222 3333 4444"/>
-	<acme:form-textbox code="patron.banner.form.label.brand" path="brand" />
-	<acme:form-integer code="patron.banner.form.label.monthExpiration" path="monthExpiration" placeholder="1 - 12"/>
-	<acme:form-integer code="patron.banner.form.label.yearExpiration" path="yearExpiration" placeholder="2021"/>
-	<acme:form-textbox code="patron.banner.form.label.cvv" path="cvv" placeholder="123"/>
+
+	<acme:form-submit method="post" test="${command == 'create'}" code="patron.banner.form.button.create"
+		action="/patron/banner/create" />
+
+	<acme:form-submit test="${command != 'create'}" code="patron.banner.form.button.update" action="/patron/banner/update" />
+
+	<acme:form-submit test="${command != 'create'}" code="patron.banner.form.button.delete" action="/patron/banner/delete" />
+	
+	<jstl:if test="${command != 'create' and not hasCreditCard}">
+		<acme:form-submit method="get" code="patron.banner.form.button.card.create" action="/patron/credit-card/create?banner=${banner}"/>	
+	</jstl:if>
 	
 	
-	<acme:form-submit test="${command == 'create'}" code="patron.banner.form.button.create" action="create" />
-	<acme:form-submit test="${command != 'create'}" code="patron.banner.form.button.update" action="update" />
-	<acme:form-submit test="${command != 'create'}" code="patron.banner.form.button.delete" action="delete" />
-	
-	
+	<input id="banner" name="banner" value="${banner}" type="hidden" />
 	<acme:form-return code="patron.banner.form.button.return" />
 	
 </acme:form>

@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.Banner;
+import acme.entities.customisations.Customisation;
 import acme.entities.roles.Patron;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -21,9 +23,17 @@ public class PatronBannerCreateService implements AbstractCreateService<Patron, 
 
 	@Override
 	public boolean authorise(final Request<Banner> request) {
-
 		assert request != null;
-		return true;
+
+		boolean result;
+		Patron patron;
+		Principal principal;
+
+		patron = this.repository.findPatronById(request.getPrincipal().getActiveRoleId());
+		principal = request.getPrincipal();
+		result = patron.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
@@ -41,15 +51,21 @@ public class PatronBannerCreateService implements AbstractCreateService<Patron, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "picture", "slogan", "url", "holderName", "number", "brand", "monthExpiration", "yearExpiration", "cvv");
+		request.unbind(entity, model, "picture", "slogan", "url");
 	}
 
 	@Override
 	public Banner instantiate(final Request<Banner> request) {
+		assert request != null;
 
-		Banner result;
-		result = new Banner();
-		return result;
+		Banner banner = new Banner();
+		Principal principal = request.getPrincipal();
+		int idPrincipal = principal.getActiveRoleId();
+
+		Patron patron = this.repository.findPatronById(idPrincipal);
+		banner.setPatron(patron);
+
+		return banner;
 	}
 
 	@Override
@@ -58,11 +74,19 @@ public class PatronBannerCreateService implements AbstractCreateService<Patron, 
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Customisation cp = this.repository.findOneCustomisation();
+
+		boolean sloganHasErrors = errors.hasErrors("slogan");
+		if (!sloganHasErrors) {
+			errors.state(request, !cp.isSpam(entity.getSlogan()), "slogan", "sponsor.commercial-banner.form.error.spam");
+		}
 	}
 
 	@Override
 	public void create(final Request<Banner> request, final Banner entity) {
-
+		assert request != null;
+		assert entity != null;
 		this.repository.save(entity);
 	}
 

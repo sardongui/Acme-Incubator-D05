@@ -17,6 +17,8 @@ entrepreneur.investmentRound.list.label.ticker = Ticker
 entrepreneur.investmentRound.list.label.kindRound = Kind round
 entrepreneur.investmentRound.list.label.title = Title
 
+entrepreneur.investmentRound.ticker.pattern = Invalid pattern
+
 
 entrepreneur.investment-round.form.button.create = Create
 entrepreneur.investment-round.form.button.update = Update

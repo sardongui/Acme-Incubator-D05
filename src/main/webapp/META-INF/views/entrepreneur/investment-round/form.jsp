@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="entrepreneur.investmentRound.form.label.ticker" path="ticker" />
+	<acme:form-textbox code="entrepreneur.investmentRound.form.label.ticker" path="ticker" placeholder = "TEC-20-012345, SCI-20-999999..."/>
 	<acme:form-moment code="entrepreneur.investmentRound.form.label.moment" path="moment" readonly="true" />
 	<acme:form-textbox code="entrepreneur.investmentRound.form.label.kindRound" path="kindRound" />
 	<acme:form-textbox code="entrepreneur.investmentRound.form.label.title" path="title" />

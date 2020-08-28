@@ -9,6 +9,7 @@ import acme.entities.roles.Patron;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
@@ -20,9 +21,17 @@ public class PatronBannerDeleteService implements AbstractDeleteService<Patron, 
 
 	@Override
 	public boolean authorise(final Request<Banner> request) {
-
 		assert request != null;
-		return true;
+
+		boolean result;
+		Patron patron;
+		Principal principal;
+
+		patron = this.repository.findPatronById(request.getPrincipal().getActiveRoleId());
+		principal = request.getPrincipal();
+		result = patron.getUserAccount().getId() == principal.getAccountId();
+
+		return result;
 	}
 
 	@Override
@@ -40,7 +49,7 @@ public class PatronBannerDeleteService implements AbstractDeleteService<Patron, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "title", "sector", "inventor", "description", "web", "email", "indication", "stars");
+		request.unbind(entity, model, "picture", "slogan", "url");
 	}
 
 	@Override

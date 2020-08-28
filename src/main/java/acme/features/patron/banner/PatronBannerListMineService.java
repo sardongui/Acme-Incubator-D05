@@ -34,7 +34,7 @@ public class PatronBannerListMineService implements AbstractListService<Patron, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "slogan", "brand");
+		request.unbind(entity, model, "url", "slogan");
 	}
 
 	@Override
