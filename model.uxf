@@ -666,7 +666,7 @@ Patron
       <x>925</x>
       <y>200</y>
       <w>355</w>
-      <h>80</h>
+      <h>85</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 InvestmentRound
@@ -678,6 +678,7 @@ InvestmentRound
 + description: String {NotBlank}
 + amountMoney: Money {Valid, NotNull}
 + link: String {URL}
++ finalMode: Boolean
 bg=green</panel_attributes>
     <additional_attributes/>
   </element>
@@ -773,14 +774,14 @@ m2=1..*</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1055</x>
-      <y>275</y>
+      <y>280</y>
       <w>25</w>
-      <h>50</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 m1=1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -804,14 +805,14 @@ bg=green</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1165</x>
-      <y>275</y>
+      <y>280</y>
       <w>25</w>
-      <h>135</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 m1=1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;250.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
